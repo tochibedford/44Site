@@ -1,9 +1,17 @@
-function App() {
+import { Route, Routes } from 'react-router-dom';
+import Discography from './pages/Discography';
+import Feed from './pages/Feed';
+import Home from './pages/Home';
 
+function App() {
   return (
-    <div className="App">
-      44
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/disco" element={<Discography />} />
+      </Routes>
+    </>
   )
 }
 
