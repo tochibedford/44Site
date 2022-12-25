@@ -1,0 +1,46 @@
+/** 
+  This Functions Convert Pix value to Rem or Em, using 16px as a base
+  Example of using the function
+  height: pix-rem(10) -> rem by default
+  width: pix-rem(15, em) -> em (converts to em)
+
+*/
+@function pix-rem($value, $suffix: rem) {
+  $calculate: calc($value/16);
+  @return #{$calculate}#{$suffix};
+}
+
+// Easy Media Queries for individual Module/Components
+/**
+  Example usage: 
+  This changes the body color to red at any screensize below 1200px
+
+  body {
+    @include mediaQuery(max-width: 1200px) {
+      background-color: red
+    }
+  }
+
+  and this changes the body color to red at any screensize above 1200px
+  body {
+    @include mediaQuery(min-width: 1200px) {
+      background-color: red
+    }
+  }
+  
+*/
+@mixin mediaQuery($value) {
+  @media only screen and ($value) {
+    @content;
+  }
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
