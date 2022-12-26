@@ -1,0 +1,20 @@
+@use "../../../utitlities/themeColors";
+@use "../../../utitlities/functions";
+
+.componentGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3em 0px;
+  padding: clamp(0.5em, 3vw, 4em);
+  outline: 1px solid themeColors.$default_foreground;
+  box-shadow: 5px 5px 1px 0px themeColors.$primary_color, 10px 10px 3px black,
+    15px 15px 2px themeColors.$subtitle_color;
+
+  .groupName {
+    text-align: center;
+    margin-bottom: 3em;
+  }
+}

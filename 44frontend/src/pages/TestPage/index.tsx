@@ -1,24 +1,10 @@
 // use this file to check your components out
 import NavButton from "../../components/NavButton/NavButton"
 import Navbar from "../../components/Navbar"
+import Panel from "../../components/Panel"
 import styles from "./TestPage.module.scss"
-
-interface IComponentGroup {
-    author: string,
-    componentName: string,
-    children: React.ReactNode
-}
-
-function ComponentGroup({ author, componentName, children }: IComponentGroup) {
-    return (
-        <div className={styles.componentGroup}>
-            <h2 className={styles.groupName}>
-                {componentName} - <i>{author}</i>
-            </h2>
-            {children}
-        </div>
-    )
-}
+import JohnTests from "./JohnTests"
+import TochiTest from "./TochiTests"
 
 export default function TestPage() {
     return (
@@ -28,19 +14,8 @@ export default function TestPage() {
                     This is the test Route, Place components here to check them out visually : )
                 </h1>
                 {/* Juts wrap your component in this "ComponentGroup Component to separate it into it's own box" */}
-                <ComponentGroup author="Tochi" componentName="Navbar">
-                    <Navbar />
-                </ComponentGroup>
-
-                {/* another example */}
-                <ComponentGroup author="John" componentName="Button">
-                    <button>A test Button</button>
-                </ComponentGroup>
-
-                <ComponentGroup author="John" componentName="NavButton">
-                    <NavButton type="email" text="Contact" />
-                    <NavButton type="link" to="/feed" text="Feed" />
-                </ComponentGroup>
+                <TochiTest />
+                <JohnTests />
             </div>
         </div>
     )

@@ -1,0 +1,13 @@
+@use "../../utitlities/themeColors";
+@use "../../utitlities/functions";
+
+.container {
+  width: 200px;
+  height: 200px;
+  color: red;
+  cursor: pointer;
+
+  &:hover {
+    color: blue;
+  }
+}
