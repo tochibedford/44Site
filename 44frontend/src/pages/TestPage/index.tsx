@@ -1,4 +1,5 @@
 // use this file to check your components out
+import NavButton from "../../components/NavButton/NavButton"
 import Navbar from "../../components/Navbar"
 import Panel from "../../components/Panel"
 import styles from "./TestPage.module.scss"
@@ -40,6 +41,11 @@ export default function TestPage() {
                 {/* another example */}
                 <ComponentGroup author="Tochi" componentName="Panel">
                     <Panel />
+                </ComponentGroup>
+
+                <ComponentGroup author="John" componentName="NavButton">
+                    <NavButton type="email" text="Contact" />
+                    <NavButton type="link" to="/feed" text="Feed" />
                 </ComponentGroup>
             </div>
         </div>
