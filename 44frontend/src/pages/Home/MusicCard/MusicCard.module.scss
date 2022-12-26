@@ -3,9 +3,8 @@
 
 .container {
   background-color: themeColors.$card_background;
-  padding: pix-rem(40);
+  padding: pix-rem(30);
   border-radius: pix-rem(16);
-  min-width: pix-rem(300);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +12,7 @@
   cursor: pointer;
 
   .image__container {
+    background-color: red;
     width: pix-rem(250);
     height: pix-rem(250);
     display: grid;
@@ -30,6 +30,7 @@
     text-align: left;
     padding: pix-rem(4) pix-rem(14);
     width: 100%;
+    // width: 250px;
     background-color: themeColors.$default_foreground;
     box-shadow: 0 pix-rem(4) pix-rem(4) rgba(0, 0, 0, 0.25);
     border-radius: pix-rem(8);
@@ -53,6 +54,7 @@
       font-weight: 900;
       font-size: pix-rem(16);
       margin-bottom: pix-rem(16);
+      width: pix-rem(200);
 
       &::before {
         content: "feat. ";
