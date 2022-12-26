@@ -11,7 +11,11 @@ export default function TochiTests() {
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Panel">
-                <Panel />
+                {(["Full Discography", "JOHN WAV", "TOCHI BEDFORD"]).map((item, index, array) => {
+                    return (
+                        <Panel text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} />
+                    )
+                })}
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Music Card">
