@@ -1,20 +1,6 @@
 import styles from "./NavButton.module.scss";
 import { Link } from "react-router-dom";
 
-const ButtonMailto = ({ mailto, children }: { mailto: string, children: React.ReactNode }) => {
-  return (
-    <Link
-      to='#'
-      onClick={(e) => {
-        window.location.href = "mailto:" + mailto;
-        e.preventDefault();
-      }}
-
-    >
-      {children}
-    </Link>
-  );
-};
 
 export default function NavButton(props: {
   text: string;
