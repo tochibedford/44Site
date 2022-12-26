@@ -1,7 +1,6 @@
 // use this file to check your components out
 import NavButton from "../../components/NavButton/NavButton"
 import Navbar from "../../components/Navbar"
-import Panel from "../../components/Panel"
 import styles from "./TestPage.module.scss"
 
 interface IComponentGroup {
