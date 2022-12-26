@@ -1,10 +1,10 @@
 @use "./utitlities/resets";
+@use "./utitlities/themeColors";
 
 :root {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  color: themeColors.$default_foreground;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
