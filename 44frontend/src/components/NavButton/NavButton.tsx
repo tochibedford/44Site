@@ -23,7 +23,7 @@ export default function NavButton(props: {
 }) {
   if (props.type === "email") {
     return (
-      <a href="mailto:reach44db@gmail.com?body=Hey 44">
+      <a href="mailto:reach44db@gmail.com?body=Hey 44" className={styles.Button}>
         {props.text}
       </a>
     );
