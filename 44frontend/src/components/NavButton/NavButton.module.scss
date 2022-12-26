@@ -1,0 +1,25 @@
+@use "../../utitlities/themeColors";
+@use "../../utitlities/functions";
+
+.Button {
+    color : themeColors.$default_foreground;
+    width : 124px;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid themeColors.$default_foreground;
+    background: themeColors.$default_background;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    &:hover {
+        background: themeColors.$subtitle_color;
+        color : themeColors.$default_background;
+    }
+
+ }
