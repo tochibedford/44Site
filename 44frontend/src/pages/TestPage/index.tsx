@@ -1,5 +1,6 @@
 // use this file to check your components out
 import Navbar from "../../components/Navbar"
+import Panel from "../../components/Panel"
 import styles from "./TestPage.module.scss"
 
 interface IComponentGroup {
@@ -34,6 +35,11 @@ export default function TestPage() {
                 {/* another example */}
                 <ComponentGroup author="John" componentName="Button">
                     <button>A test Button</button>
+                </ComponentGroup>
+
+                {/* another example */}
+                <ComponentGroup author="Tochi" componentName="Panel">
+                    <Panel />
                 </ComponentGroup>
             </div>
         </div>
