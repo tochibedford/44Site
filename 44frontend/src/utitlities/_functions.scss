@@ -13,24 +13,33 @@
 // Easy Media Queries for individual Module/Components
 /**
   Example usage: 
-  This changes the body color to red at any screensize below 1200px
 
+  This changes the body color to red at any screensize above 1200px
   body {
-    @include mediaQuery(max-width: 1200px) {
-      background-color: red
-    }
-  }
-
-  and this changes the body color to red at any screensize above 1200px
-  body {
-    @include mediaQuery(min-width: 1200px) {
+    @include mediaQueryMin(1200px) {
       background-color: red
     }
   }
   
 */
-@mixin mediaQuery($value) {
-  @media only screen and ($value) {
+@mixin mediaQueryMin($value) {
+  @media only screen and (min-width: $value) {
+    @content;
+  }
+}
+
+/** 
+Example usage:
+This changes the body color to red at any screensize below 1200px
+
+  body {
+    @include mediaQueryMax(1200px) {
+      background-color: red
+    }
+  }
+*/
+@mixin mediaQueryMax($value) {
+  @media only screen and (max-width: $value) {
     @content;
   }
 }
