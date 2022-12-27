@@ -15,12 +15,15 @@ export default function MusicGridItem({
 }: MusicGridItemProps) {
   return (
     <div className={styles.item}>
+       {/* <div className="onHoverDet">
+        <h1>{title}</h1>
+        <h1>{artist}</h1>
+        <h1>{features}</h1>
+      </div> */}
       <img className={styles.cover} src={album_art} alt="albumart" />
 
       {/* meta data will be used in expanded view of grid item */}
-      {/* <h1>{title}</h1>
-      <h1>{artist}</h1>
-      <h1>{features}</h1> */}
+     
     </div>
   );
 }

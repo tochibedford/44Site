@@ -2,16 +2,28 @@
 @import "../../utitlities/functions";
 
 .item {
-  width: pix-rem(156);
-  height: pix-rem(166);
-  background: red;
+  width: pix-rem(166);
+  height: pix-rem(156);
   font-size: 8px;
+  cursor: pointer;
+  position: relative;
+
+  
+  &:hover {
+    width: pix-rem(400);
+    height: pix-rem(360);
+  }
 }
 
-
-
 .cover {
-    height: 166px;
-    width: 156px;
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+}
 
+.item > .onHoverDet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
