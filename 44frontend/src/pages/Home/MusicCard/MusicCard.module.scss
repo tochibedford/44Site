@@ -3,18 +3,22 @@
 
 .container {
   background-color: themeColors.$card_background;
-  padding: pix-rem(30);
+  padding: pix-rem(20);
   border-radius: pix-rem(16);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: pix-rem(24);
   cursor: pointer;
+  transition: scale 0.1s;
+
+  &:hover {
+    scale: 1.05;
+  }
 
   .image__container {
-    background-color: red;
-    width: pix-rem(250);
-    height: pix-rem(250);
+    width: pix-rem(230);
+    height: pix-rem(230);
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -28,9 +32,9 @@
 
   .info {
     text-align: left;
-    padding: pix-rem(4) pix-rem(14);
+    padding: pix-rem(4) pix-rem(10);
     width: 100%;
-    // width: 250px;
+    max-width: pix-rem(230);
     background-color: themeColors.$default_foreground;
     box-shadow: 0 pix-rem(4) pix-rem(4) rgba(0, 0, 0, 0.25);
     border-radius: pix-rem(8);
@@ -40,6 +44,7 @@
       font-size: pix-rem(32);
       font-weight: 900;
       margin-bottom: pix-rem(4);
+      word-break: break-all;
     }
 
     .artist {

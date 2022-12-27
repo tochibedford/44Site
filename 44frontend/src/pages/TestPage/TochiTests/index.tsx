@@ -6,10 +6,6 @@ import MusicCard from "../../Home/MusicCard"
 export default function TochiTests() {
     return (
         <>
-            <ComponentGroup author="Tochi" componentName="Navbar">
-                <Navbar />
-            </ComponentGroup>
-
             <ComponentGroup author="Tochi" componentName="Panel">
                 {(["Full Discography", "JOHN WAV", "TOCHI BEDFORD"]).map((item, index, array) => {
                     return (
