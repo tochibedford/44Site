@@ -1,0 +1,17 @@
+@use "../../utitlities/themeColors";
+@import "../../utitlities/functions";
+
+.item {
+  width: pix-rem(156);
+  height: pix-rem(166);
+  background: red;
+  font-size: 8px;
+}
+
+
+
+.cover {
+    height: 166px;
+    width: 156px;
+
+}
