@@ -1,6 +1,7 @@
 import ComponentGroup from "../ComponentGroup"
 import NavButton from "../../../components/NavButton/NavButton"
 import MusicGridItem from "../../../components/MusicGridItem"
+import DropdownBtn from "../../../components/DropdownBtn";
 
 export default function JohnTests() {
 
@@ -26,6 +27,9 @@ export default function JohnTests() {
             </ComponentGroup>
             <ComponentGroup author="John" componentName="MusicGridItem">
                 <MusicGridItem  {...MusicGridObject} />
+            </ComponentGroup>
+            <ComponentGroup author="John" componentName="DropdownBtn">
+                <DropdownBtn />
             </ComponentGroup>
 
 
