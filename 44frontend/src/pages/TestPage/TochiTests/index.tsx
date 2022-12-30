@@ -1,5 +1,4 @@
 import ComponentGroup from "../ComponentGroup"
-import Navbar from "../../../components/Navbar"
 import Panel from "../../../components/Panel"
 import MusicCard from "../../Home/MusicCard"
 
@@ -16,6 +15,11 @@ export default function TochiTests() {
 
             <ComponentGroup author="Tochi" componentName="Music Card">
                 <MusicCard />
+            </ComponentGroup>
+
+            <ComponentGroup author="Tochi" componentName="Discography on click">
+                <>Click the panel to bring out the discography pane</>
+                <Panel text={"John Wav"} last={true} noInfo={true} />
             </ComponentGroup>
         </>
     )

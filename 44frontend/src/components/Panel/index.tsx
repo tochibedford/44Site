@@ -4,8 +4,8 @@ import arrow from "./images/arrow_blue.svg"
 interface IPanel {
     text: string;
     last?: boolean;
-    flipped: boolean;
-    noInfo: boolean;
+    flipped?: boolean;
+    noInfo?: boolean;
 }
 
 export default function Panel({ text, last = false, flipped = false, noInfo = false }: IPanel) {
