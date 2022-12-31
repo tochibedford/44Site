@@ -40,6 +40,13 @@ export default function DropDown() {
                             </div>
                         )
                     })}
+                    <div className={styles.option} onClick={(e) => { e.stopPropagation() }}>
+                        <div className={styles.arrowContainer}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className={styles.selected}>

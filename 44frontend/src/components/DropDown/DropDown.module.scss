@@ -67,9 +67,11 @@
       &::-webkit-scrollbar {
         width: 4px;
         background: themeColors.$default_background;
+        display: none;
       }
 
       &::-webkit-scrollbar-thumb {
+        display: none;
         border-radius: 19px;
         background: themeColors.$default_foreground;
       }
@@ -83,6 +85,14 @@
 
         &:first-child {
           border-top: none;
+        }
+
+        &:last-child {
+          position: sticky;
+          bottom: 0;
+          background-color: themeColors.$default_background;
+          border: none;
+          opacity: 0.9;
         }
 
         &:hover {
@@ -103,6 +113,15 @@
           height: 100%;
           opacity: 0;
           cursor: pointer;
+        }
+
+        .arrowContainer {
+          width: 100%;
+          height: pix-rem(30);
+
+          svg {
+            height: 100%;
+          }
         }
       }
     }
