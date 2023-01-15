@@ -14,6 +14,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  background: themeColors.$default_background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: themeColors.$default_foreground;
+  border-radius: 9px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

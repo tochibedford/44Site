@@ -1,0 +1,140 @@
+@use "../../utitlities/themeColors";
+@import "../../utitlities/functions";
+
+.container {
+  padding: pix-rem(12) pix-rem(30);
+  border: 1px solid themeColors.$default_foreground;
+  font-size: pix-rem(24);
+  color: themeColors.$default_foreground;
+  font-weight: 900;
+  border-radius: 1em;
+  min-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    background-color: themeColors.$default_foreground;
+    color: themeColors.$default_background;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked {
+      + .optionsContainer {
+        opacity: 1;
+        height: 300px;
+      }
+
+      ~ .iconContainer {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .optionsContainer {
+    position: absolute;
+    top: calc(100% + pix-rem(5));
+    left: 0;
+    width: 100%;
+    border: 1px solid themeColors.$default_foreground;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: themeColors.$default_background;
+    color: themeColors.$default_foreground;
+
+    height: 0;
+    opacity: 0;
+    transition: height 0.5s, opacity 0.5s;
+
+    .optionsContainerContent {
+      overflow-y: auto;
+      width: 90%;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        background: themeColors.$default_background;
+        display: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        display: none;
+        border-radius: 19px;
+        background: themeColors.$default_foreground;
+      }
+
+      .option {
+        padding: 0.5em 0;
+        border-top: 1px solid themeColors.$default_foreground;
+        width: 100%;
+        position: relative;
+        transition: 0.2s;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:last-child {
+          position: sticky;
+          bottom: 0;
+          background-color: themeColors.$default_background;
+          border: none;
+          opacity: 0.9;
+        }
+
+        &:hover {
+          color: themeColors.$primary_color;
+          border-color: themeColors.$primary_color;
+          font-size: 1.05em;
+
+          + .option {
+            border-color: themeColors.$primary_color;
+          }
+        }
+
+        input[type="radio"] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .arrowContainer {
+          width: 100%;
+          height: pix-rem(30);
+
+          svg {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .iconContainer {
+    height: pix-rem(20);
+    width: pix-rem(20);
+
+    svg {
+      object-fit: contain;
+      stroke-width: pix-rem(4);
+      transition: 0.3s;
+    }
+  }
+}
