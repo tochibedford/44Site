@@ -17,10 +17,9 @@ export default function MusicGridItem({
   return (
     <div className={styles.item}>
       <div className={styles.onHoverDet}>
-        {/* <h1>{title}</h1>
-        <h1>{artist}</h1>
-        <h1>{features}</h1>
-        <h1>{features}</h1> */}
+        <h2>{title}</h2>
+        <h3>{artist}</h3>
+        <h4>{features}</h4>
       </div>
       <img className={styles.cover} src={album_art} alt="albumart" />
 
