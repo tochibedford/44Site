@@ -43,7 +43,7 @@ export default function Panel({ text, last = false, flipped = false, noInfo = fa
     } else {
         return (
             <div className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`} onClick={() => { setIsOpen && setIsOpen(true) }}>
-                <input type="checkbox" className={styles.panel__check} />
+                {/* <input type="checkbox" className={styles.panel__check} /> */}
                 <div className={styles.text__content}>{text}</div>
                 <div className={styles.divider} />
                 <div className={styles.panel__action__detail}>

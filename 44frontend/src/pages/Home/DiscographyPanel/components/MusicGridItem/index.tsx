@@ -5,6 +5,7 @@ interface MusicGridItemProps {
   artist: string;
   features: string;
   album_art: string;
+  expandWidth?: boolean
 }
 
 export default function MusicGridItem({

@@ -9,12 +9,9 @@
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  // transition: width 0.3s cubic-bezier(0.74, -0.29, 0.94, 0.5),
-  //   height 0.15s cubic-bezier(0.74, -0.29, 0.94, 0.5);
   transition: height 0.3s;
 
   &:hover {
-    // width: 200%;
     height: 200%;
     z-index: 1;
 
@@ -26,7 +23,7 @@
       // height: 100%;
       // background-color: #00000079;
       // color: themeColors.$default_background;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(3px);
       // mix-blend-mode: screen;
       // opacity: 1;
     }

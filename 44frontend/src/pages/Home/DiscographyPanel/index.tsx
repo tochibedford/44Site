@@ -22,9 +22,9 @@ export default function DiscographyPanel({ isOpen, setIsOpen }: IDiscographyPane
                                 title: "Rather Be",
                                 artist: "Saint Austin",
                                 features: "Saint, John & Tochi",
-                                album_art: `https://picsum.photos/id/${index + 10}/200/300`
+                                album_art: `https://picsum.photos/id/${index + 10}/200/300`,
                             };
-                            return <MusicGridItem {...MusicGridObject} />
+                            return <MusicGridItem key={index} {...MusicGridObject} />
                         })
                     }
 
