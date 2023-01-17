@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import MusicCard from "../MusicCard"
 import styles from "./CardCarousel.module.scss"
 
@@ -44,16 +44,36 @@ function loopedListFromArray<T>(arr: T[]) { //converts an array into a Looped Li
 }
 
 export default function CardCarousel({ setNum }: { setNum: React.Dispatch<React.SetStateAction<number>> }) {
-    const carouselElements: ReactNode[] = Array(3).fill(
-        <div className={styles.card__wrapper}>
-            <MusicCard />
-        </div>
-    ) //generate an 20 item array of music cards
+    const carouselElements = [
+        <div className={styles.card__wrapper} key={0}>
+            <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />
+        </div>,
+        <div className={styles.card__wrapper} key={1}>
+            <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />
+        </div>,
+        <div className={styles.card__wrapper} key={2}>
+            <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />
+        </div>,
+        <div className={styles.card__wrapper} key={3}>
+            <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />
+        </div>,
+
+    ]
+    //generate an 20 item array of music cards
 
     //turn array into looped link list
     const loopedListHead = loopedListFromArray(carouselElements)
-    const [carousel, setCarousel] = useState([loopedListHead.prev, loopedListHead, loopedListHead.next, loopedListHead.next?.next])
+    const [carousel, setCarousel] = useState([loopedListHead, loopedListHead.next, loopedListHead.next?.next, loopedListHead.next?.next?.next])
 
+    useEffect(() => {
+        const t = setInterval(() => {
+            setCarousel([carousel[1], carousel[2], carousel[3], carousel[3]?.next])
+        }, 4000)
+
+        return () => {
+            clearInterval(t)
+        }
+    }, [carousel])
     return (
         <div className={styles.container}>
             {carousel.map(item => item?.value)}
