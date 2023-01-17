@@ -6,6 +6,7 @@ interface MusicGridItemProps {
   features: string;
   album_art: string;
   expandWidth?: boolean
+  controllerClass?: string
 }
 
 export default function MusicGridItem({
@@ -13,9 +14,10 @@ export default function MusicGridItem({
   artist,
   features,
   album_art,
+  controllerClass
 }: MusicGridItemProps) {
   return (
-    <div className={styles.item}>
+    <div className={`${styles.item} ${controllerClass}`}>
       <div className={styles.onHoverDet}>
         <h2>{title}</h2>
         <h3>{artist}</h3>

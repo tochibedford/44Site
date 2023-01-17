@@ -8,7 +8,6 @@ type IDiscographyPanel = {
 }
 
 export default function DiscographyPanel({ isOpen, setIsOpen }: IDiscographyPanel) {
-
     return (
         <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
             <div className={styles.top}>
@@ -24,7 +23,7 @@ export default function DiscographyPanel({ isOpen, setIsOpen }: IDiscographyPane
                                 features: "Saint, John & Tochi",
                                 album_art: `https://picsum.photos/id/${index + 10}/200/300`,
                             };
-                            return <MusicGridItem key={index} {...MusicGridObject} />
+                            return <MusicGridItem key={index} {...MusicGridObject} controllerClass={styles.item} />
                         })
                     }
 

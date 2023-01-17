@@ -43,18 +43,51 @@
       grid-auto-rows: 200px;
       gap: pix-rem(2);
 
+      .item {
+        &:nth-last-child(-n + 5) {
+          transition: transform 0.4s;
+          &:hover {
+            transform: translateY(-50%);
+          }
+        }
+      }
+
       @include mediaQueryMax(1300px) {
         grid-template-columns: repeat(4, 200px);
+        .item {
+          &:nth-last-child(-n + 4) {
+            transition: transform 0.4s;
+            &:hover {
+              transform: translateY(-50%);
+            }
+          }
+        }
       }
 
       @include mediaQueryMax(960px) {
         grid-template-columns: repeat(3, 150px);
         grid-auto-rows: 150px;
+        .item {
+          &:nth-last-child(-n + 3) {
+            transition: transform 0.4s;
+            &:hover {
+              transform: translateY(-50%);
+            }
+          }
+        }
       }
 
       @include mediaQueryMax(640px) {
         grid-template-columns: repeat(3, 100px);
         grid-auto-rows: 100px;
+        .item {
+          &:nth-last-child(-n + 3) {
+            transition: transform 0.4s;
+            &:hover {
+              transform: translateY(-50%);
+            }
+          }
+        }
       }
     }
   }
