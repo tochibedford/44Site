@@ -3,9 +3,11 @@ import Panel from "../../../components/Panel"
 import MusicCard from "../../Home/MusicCard"
 import DiscographyPanel from "../../Home/DiscographyPanel"
 import { useState } from "react"
+import CardCarousel from "../../Home/CardCarousel"
 
 export default function TochiTests() {
-    const [isDiscographyOpen, setIsDiscographyOpen] = useState(false);
+    const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
+    const [num, setNum] = useState(1)
     return (
         <>
             <ComponentGroup author="Tochi" componentName="Panel">
@@ -31,6 +33,10 @@ export default function TochiTests() {
                 <>Click the panel to bring out the discography pane</>
                 <Panel text={"John Wav"} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} />
                 <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
+            </ComponentGroup>
+
+            <ComponentGroup author="Tochi" componentName="Card Carousel">
+                {setNum ? <CardCarousel setNum={setNum} /> : ""}
             </ComponentGroup>
         </>
     )

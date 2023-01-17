@@ -1,0 +1,62 @@
+@use "../../../utitlities/themeColors";
+@import "../../../utitlities/functions";
+
+$card-gap: 0.5em;
+
+.container {
+  display: grid;
+  z-index: 1;
+  grid-template-columns: 1fr;
+
+  .card__wrapper {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      z-index: -1;
+    }
+
+    &:nth-child(1) {
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-$card-gap, -$card-gap);
+
+      // @include animate();
+    }
+
+    &:nth-child(2) {
+    }
+
+    &:nth-child(3) {
+      opacity: 0.5;
+      transform: translate($card-gap, $card-gap);
+    }
+
+    &:nth-child(4) {
+      opacity: 0.2;
+      transform: translate($card-gap + $card-gap, $card-gap + $card-gap);
+    }
+  }
+}
+// .container {
+//   position: relative;
+//   .card__wrapper {
+//     &:nth-child(2),
+//     &:nth-child(3) {
+//       position: absolute;
+//     }
+
+//     &:nth-child(2) {
+//       opacity: 0.5;
+//       top: 0.5em;
+//       left: 0.5em;
+//     }
+
+//     &:nth-child(3) {
+//       opacity: 0.2;
+//       top: 1em;
+//       left: 1em;
+//     }
+//   }
+// }

@@ -1,9 +1,11 @@
 import styles from "./MusicCard.module.scss"
 import cardImage from "./images/card_pic.jpg"
 
+
+
 export default function MusicCard() {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} >
             <div className={styles.image__container}>
                 <img src={cardImage} alt="card image" />
             </div>
