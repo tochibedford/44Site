@@ -1,6 +1,6 @@
 import ComponentGroup from "../ComponentGroup"
 import NavButton from "../../../components/NavButton/NavButton"
-import MusicGridItem from "../../../components/MusicGridItem"
+import MusicGridItem from "../../Home/DiscographyPanel/components/MusicGridItem";
 import DropdownBtn from "../../../components/DropdownBtn";
 import DropDown from "../../../components/DropDown";
 

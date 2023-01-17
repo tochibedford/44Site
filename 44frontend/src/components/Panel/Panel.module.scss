@@ -9,7 +9,18 @@
   border-bottom-width: 0;
   transition: border 0.2s;
   display: flex;
+  position: relative;
   cursor: pointer;
+
+  .panel__check {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
 
   &:hover {
     border-color: themeColors.$primary_color;
@@ -61,6 +72,7 @@
     transition: width 0.8s cubic-bezier(0.74, -0.29, 0.94, 0.5), color 0.2s;
     padding: pix-rem(50);
     text-transform: uppercase;
+    color: themeColors.$default_foreground;
 
     @include mediaQueryMin(1200px) {
       font-size: clamp(pix-rem(20), 8vw, pix-rem(130));
