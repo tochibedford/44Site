@@ -2,6 +2,7 @@
 import styles from "./TestPage.module.scss"
 import JohnTests from "./JohnTests"
 import TochiTests from "./TochiTests"
+import MartieTests from "./MartieTests"
 
 export default function TestPage() {
     return (
@@ -13,6 +14,7 @@ export default function TestPage() {
                 {/* Juts wrap your component in this "ComponentGroup Component to separate it into it's own box" */}
                 <TochiTests />
                 <JohnTests />
+                <MartieTests />
             </div>
         </div>
     )
