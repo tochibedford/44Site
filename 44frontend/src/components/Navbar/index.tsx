@@ -12,12 +12,12 @@ export default function Navbar() {
 
     const [currentTime, setCurrentTime] = useState("")
     useEffect(() => {
-        const cTime = new Date();
         const timer = setInterval(() => {
-            setCurrentTime(`${cTime.toLocaleTimeString([], { hour12: true }).toLocaleUpperCase()}`)
+            const cTime = new Date();
+            setCurrentTime(`${cTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }).toLocaleUpperCase()}`)
         }, 1000)
         return () => clearInterval(timer);
-    })
+    }, [currentTime])
 
     return (
         <div className={styles.navbarWrapper}>
