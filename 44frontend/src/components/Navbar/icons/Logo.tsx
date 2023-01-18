@@ -1,10 +1,10 @@
 import * as React from "react"
 import { SVGProps, memo } from "react"
 
-const SvgComponent = (props: SVGProps<SVGSVGElement>) => {
-    const { width = 275, height = 275, ...otherProps } = props
+const SvgComponent = (props: SVGProps<SVGSVGElement> & { cropWidth?: number, cropHeight?: number }) => {
+    const { cropWidth = 275, cropHeight = 275, ...otherProps } = props
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${275} ${275}`} {...otherProps}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${cropWidth} ${cropHeight}`} {...otherProps}>
             <title>{"44"}</title>
             <path
                 fillRule="evenodd"
