@@ -1,7 +1,6 @@
 import Navbar from "../Navbar";
 import styles from "./NavLayout.module.scss";
 
-
 type INavLayout = {
     children: React.ReactNode
 }
