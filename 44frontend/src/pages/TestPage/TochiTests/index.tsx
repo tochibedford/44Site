@@ -7,7 +7,6 @@ import CardCarousel from "../../Home/CardCarousel"
 
 export default function TochiTests() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
-    const [num, setNum] = useState(1)
     return (
         <>
             <ComponentGroup author="Tochi" componentName="Panel">
@@ -36,7 +35,7 @@ export default function TochiTests() {
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Card Carousel">
-                {setNum ? <CardCarousel setNum={setNum} /> : ""}
+                <CardCarousel />
             </ComponentGroup>
         </>
     )

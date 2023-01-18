@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import MusicCard from "../MusicCard"
 import styles from "./CardCarousel.module.scss"
 
@@ -43,7 +43,7 @@ function loopedListFromArray<T>(arr: T[]) { //converts an array into a Looped Li
 
 }
 
-export default function CardCarousel({ setNum }: { setNum: React.Dispatch<React.SetStateAction<number>> }) {
+export default function CardCarousel() {
     const carouselElements = [
         <div className={styles.card__wrapper} key={0}>
             <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />

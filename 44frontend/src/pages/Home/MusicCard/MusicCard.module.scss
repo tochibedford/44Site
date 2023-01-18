@@ -11,6 +11,7 @@
   gap: pix-rem(24);
   cursor: pointer;
   transition: scale 0.1s;
+  max-width: pix-rem(270);
 
   &:hover {
     scale: 1.05;
