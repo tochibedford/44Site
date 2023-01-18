@@ -17,6 +17,9 @@
 .navbarButtons {
     display: flex;
     gap: pix-rem(38);
+    @include mediaQueryMax(800px) {
+            gap: pix-rem(15);
+        }
 }
 
 .navbarText {

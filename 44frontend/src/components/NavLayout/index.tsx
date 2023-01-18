@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import Navbar from "../Navbar";
 
-type ILayout = {
+type INavLayout = {
     children: ReactNode
 }
 
-export default function Layout({ children }: ILayout) {
+export default function NavLayout({ children }: INavLayout) {
     return (
         <>
             <Navbar />

@@ -7,7 +7,7 @@ import Layout from "../../components/NavLayout"
 
 export default function TestPage() {
     return (
-        <Layout>
+        <>
             <div className={styles.bodyContainer}>
                 <div className={styles.body}>
                     <h1>
@@ -19,6 +19,6 @@ export default function TestPage() {
                     <MartieTests />
                 </div>
             </div>
-        </Layout>
+        </>
     )
 }
