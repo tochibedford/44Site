@@ -2,55 +2,6 @@
 @import "../../../utitlities/functions";
 
 $card-gap: 0.5em;
-
-// @include keyframes(carouselChange2) {
-//   0% {
-//     opacity: 0;
-//     transform: translate(0em, 0em);
-//   }
-//   15% {
-//     opacity: 0;
-//     transform: translate(-$card-gap, -$card-gap);
-//   }
-//   100% {
-//     opacity: 0;
-//     transform: translate(-$card-gap, -$card-gap);
-//   }
-// }
-
-// @include keyframes(carouselChange3) {
-//   0% {
-//     opacity: 0.5;
-//     transform: translate($card-gap, $card-gap);
-//     z-index: -1;
-//   }
-//   20% {
-//     opacity: 1;
-//     transform: translate(0em, 0em);
-//     z-index: unset;
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translate(0em, 0em);
-//     z-index: unset;
-//   }
-// }
-
-// @include keyframes(carouselChange4) {
-//   0% {
-//     opacity: 0.2;
-//     transform: translate($card-gap + $card-gap, $card-gap + $card-gap);
-//   }
-//   25% {
-//     opacity: 0.5;
-//     transform: translate($card-gap, $card-gap);
-//   }
-//   100% {
-//     opacity: 0.5;
-//     transform: translate($card-gap, $card-gap);
-//   }
-// }
-
 .container {
   display: grid;
   z-index: 1;
@@ -70,8 +21,6 @@ $card-gap: 0.5em;
       opacity: 0;
       transform: translate(-$card-gap, -$card-gap);
       transition: 0.5s;
-
-      // @include animate();
     }
 
     &:nth-child(2) {
@@ -85,7 +34,6 @@ $card-gap: 0.5em;
     &:nth-child(3) {
       opacity: 0.5;
       transform: translate($card-gap, $card-gap);
-      // animation: carouselChange3 3s infinite;
       animation-direction: normal;
       transition: 1.2s;
       transition-delay: 0.5s;
@@ -94,30 +42,8 @@ $card-gap: 0.5em;
     &:nth-child(4) {
       opacity: 0.2;
       transform: translate($card-gap + $card-gap, $card-gap + $card-gap);
-      // animation: carouselChange4 3s infinite;
       animation-direction: normal;
       transition: 0.4s;
     }
   }
 }
-// .container {
-//   position: relative;
-//   .card__wrapper {
-//     &:nth-child(2),
-//     &:nth-child(3) {
-//       position: absolute;
-//     }
-
-//     &:nth-child(2) {
-//       opacity: 0.5;
-//       top: 0.5em;
-//       left: 0.5em;
-//     }
-
-//     &:nth-child(3) {
-//       opacity: 0.2;
-//       top: 1em;
-//       left: 1em;
-//     }
-//   }
-// }
