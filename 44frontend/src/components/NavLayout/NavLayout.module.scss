@@ -1,7 +1,12 @@
 @use "../../utitlities/themeColors";
 @import "../../utitlities/functions";
 
-.main__container {
-  width: 100%;
-  padding: pix-rem(53);
+.layout__container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  .main__container {
+    width: 100%;
+    padding: pix-rem(53);
+  }
 }

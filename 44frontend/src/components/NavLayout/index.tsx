@@ -8,9 +8,9 @@ type INavLayout = {
 
 export default function NavLayout({ children }: INavLayout) {
     return (
-        <>
+        <div className={styles.layout__container}>
             <Navbar />
             <main className={styles.main__container}>{children}</main>
-        </>
+        </div>
     )
 }
