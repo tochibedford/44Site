@@ -1,15 +1,16 @@
-import { ReactNode } from "react";
 import Navbar from "../Navbar";
+import styles from "./NavLayout.module.scss";
+
 
 type INavLayout = {
-    children: ReactNode
+    children: React.ReactNode
 }
 
 export default function NavLayout({ children }: INavLayout) {
     return (
         <>
             <Navbar />
-            <main>{children}</main>
+            <main className={styles.main__container}>{children}</main>
         </>
     )
 }
