@@ -20,4 +20,9 @@
     background: themeColors.$subtitle_color;
     color: themeColors.$default_background;
   }
+
+    @include mediaQueryMax(500px) {
+      font-size: pix-rem(14);
+      min-width: pix-rem(100);
+    }
 }

@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.scss"
 import NavButton from "../NavButton/NavButton"
 import Logo from "./icons/Logo"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
     const currentDay = new Date()
@@ -10,12 +10,15 @@ export default function Navbar() {
             month: "short"
         }).toLocaleUpperCase()
 
-    const currentTime = new Date()
-        .toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-        }).toLocaleUpperCase()
+    const [currentTime, setCurrentTime] = useState("")
+    useEffect(() => {
+        const timer = setInterval(() => {
+            const cTime = new Date();
+            setCurrentTime(`${cTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }).toLocaleUpperCase()}`)
+        }, 1000)
+        return () => clearInterval(timer);
+    }, [currentTime])
+
     return (
         <div className={styles.navbarWrapper}>
             <div className={styles.logo}>
