@@ -10,7 +10,7 @@
     width: 100%;
 
     @include mediaQueryMax(800px) {
-        padding: 0 pix-rem(10);
+        padding: pix-rem(35) pix-rem(10);
     }
 }
 
