@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import MusicCard from "../MusicCard"
 import styles from "./CardCarousel.module.scss"
 
