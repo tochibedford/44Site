@@ -1,0 +1,44 @@
+@use "../../utitlities/themeColors";
+@import "../../utitlities/functions";
+
+
+.navbarWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: pix-rem(35) pix-rem(53);
+    width: 100%;
+
+    @include mediaQueryMax(800px) {
+        padding: pix-rem(35) pix-rem(10);
+    }
+}
+
+.navbarButtons {
+    display: flex;
+    gap: pix-rem(38);
+}
+
+.navbarText {
+    // font-size: pix-rem(20);
+    font-size: clamp(pix-rem(18),2vw,pix-rem(32));
+    line-height: pix-rem(38);
+    font-weight: 900;
+    color: themeColors.$default_foreground;
+    background-color: transparent;
+
+    @include mediaQueryMax(600px) {
+        display: none;
+    }
+}
+
+.logo {
+    width: pix-rem(50);
+    height: pix-rem(50);
+
+    svg {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}

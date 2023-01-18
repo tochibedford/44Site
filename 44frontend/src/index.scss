@@ -1,16 +1,27 @@
 @use "./utitlities/resets";
+@use "./utitlities/themeColors";
 
 :root {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  color: themeColors.$default_foreground;
+  background-color: themeColors.$default_background;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: themeColors.$default_background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: themeColors.$default_foreground;
+  border-radius: 9px;
 }
 
 a {

@@ -1,0 +1,21 @@
+@use "../../utitlities/themeColors";
+@use "../../utitlities/functions";
+
+.bodyContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: themeColors.$default_background;
+  min-height: 100vh;
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    font-size: 1.2em;
+  }
+}
