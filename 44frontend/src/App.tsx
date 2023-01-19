@@ -7,14 +7,18 @@ import NavLayout from './components/NavLayout';
 
 function App() {
   return (
-    <NavLayout>
+    <>
+      <NavLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/disco" element={<Discography />} />
+        </Routes>
+      </NavLayout>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/disco" element={<Discography />} />
         <Route path="/test" element={<TestPage />} />
       </Routes>
-    </NavLayout>
+    </>
   )
 }
 
