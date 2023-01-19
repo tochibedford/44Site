@@ -4,6 +4,7 @@ import MusicCard from "../../Home/MusicCard"
 import DiscographyPanel from "../../Home/DiscographyPanel"
 import { useState } from "react"
 import CardCarousel from "../../Home/CardCarousel"
+import mbLogo from "../../../assets/mbLogo.png"
 
 export default function TochiTests() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
@@ -32,6 +33,10 @@ export default function TochiTests() {
                 <>Click the panel to bring out the discography pane</>
                 <Panel text={"John Wav"} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} />
                 <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
+            </ComponentGroup>
+
+            <ComponentGroup author="Tochi" componentName="Feed Panel">
+                <Panel icon={mbLogo} text={"More Branches"} last={true} isExternalLink={true} subtitle="The 44dbcollective Want You To Know The Revolution Will Be Televised" noInfo={true} action="link" url="https://www.morebranches.com/the-44dbcollective-want-you-to-know-the-revolution-will-be-televised/" />
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Card Carousel">
