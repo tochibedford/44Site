@@ -70,7 +70,7 @@
 
   .text__content {
     width: 90%;
-    font-size: clamp(pix-rem(20), 5vw, pix-rem(130));
+    font-size: clamp(pix-rem(70), 5vw, pix-rem(130));
     font-weight: 700;
     text-align: left;
     letter-spacing: -0.11em;
@@ -78,13 +78,18 @@
     flex-direction: column;
     justify-content: center;
     transition: width 0.8s cubic-bezier(0.74, -0.29, 0.94, 0.5), color 0.2s,
-      font-size 0.8s cubic-bezier(0.74, -0.29, 0.94, 0.5), padding 0.5s;
+      padding 0.5s;
     padding: pix-rem(50);
     text-transform: uppercase;
     color: themeColors.$default_foreground;
+    overflow-x: hidden;
 
     @include mediaQueryMin(1200px) {
       font-size: clamp(pix-rem(20), 6vw, pix-rem(130));
+    }
+
+    @include mediaQueryMax(768px) {
+      font-size: clamp(pix-rem(40), 8vw, pix-rem(130));
     }
   }
 
