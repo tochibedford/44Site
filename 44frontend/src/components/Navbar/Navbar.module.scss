@@ -36,6 +36,11 @@
 .logo {
   width: pix-rem(50);
   height: pix-rem(50);
+  transition: transform 0.3s ease-in;
+
+  &:hover {
+    transform: rotate(90deg);
+  }
 
   svg {
     width: 100%;
