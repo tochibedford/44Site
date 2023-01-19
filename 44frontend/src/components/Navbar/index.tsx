@@ -2,6 +2,7 @@ import styles from "./Navbar.module.scss"
 import NavButton from "../NavButton/NavButton"
 import Logo from "./icons/Logo"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
     const currentDay = new Date()
@@ -21,9 +22,9 @@ export default function Navbar() {
 
     return (
         <div className={styles.navbarWrapper}>
-            <div className={styles.logo}>
+            <Link to="/" className={styles.logo}>
                 <Logo></Logo>
-            </div>
+            </Link>
             <h1 className={styles.navbarText}> {currentDay} | {currentTime}</h1>
             <div className={styles.navbarButtons}>
                 <NavButton type="email" text="Contact" />
