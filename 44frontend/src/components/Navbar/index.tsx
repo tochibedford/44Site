@@ -5,20 +5,30 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-    const currentDay = new Date()
-        .toLocaleDateString([], {
+
+    const dateTimeNow = new Date()
+
+    const [currentTime, setCurrentTime] = useState(dateTimeNow.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }).toLocaleUpperCase())
+    const [currentDay, setCurrentDay] = useState(
+        dateTimeNow.toLocaleDateString([], {
             day: "numeric",
             month: "short"
         }).toLocaleUpperCase()
-
-    const [currentTime, setCurrentTime] = useState("")
+    )
     useEffect(() => {
+        // moved current day here since current day can change
         const timer = setInterval(() => {
             const cTime = new Date();
+            setCurrentDay(
+                cTime.toLocaleDateString([], {
+                    day: "numeric",
+                    month: "short"
+                }).toLocaleUpperCase()
+            )
             setCurrentTime(`${cTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }).toLocaleUpperCase()}`)
         }, 1000)
         return () => clearInterval(timer);
-    }, [currentTime])
+    }, [currentTime, currentDay])
 
     return (
         <div className={styles.navbarWrapper}>
