@@ -6,6 +6,8 @@ interface IPanelBase {
     text: string
     last?: boolean
     flipped?: boolean
+    noInfo?: boolean
+    shortBio?: string
 }
 
 type IPanelConditional = {
@@ -13,8 +15,6 @@ type IPanelConditional = {
     url: string
     icon?: string
     subtitle?: string
-    shortBio?: never
-    noInfo?: true
     isExternalLink?: boolean
     setIsOpen?: never
 } | {
@@ -23,8 +23,6 @@ type IPanelConditional = {
     icon?: never
     subtitle?: never
     isExternalLink?: never
-    noInfo?: boolean
-    shortBio?: string
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
