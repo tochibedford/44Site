@@ -8,8 +8,12 @@ import DataContext from "../../context/data"
 export default function Home() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
     const data = useContext(DataContext)
-    const talent = data?.talent
+    let talent = data?.talent
+    talent = talent?.reduce((acc: any, curr: any) => {
+        return [curr].concat(acc)
+    }, [])
 
+    console.log(talent)
     return (
         <>
             <section className={styles.hero}>
@@ -21,10 +25,9 @@ export default function Home() {
             </section>
             <section className={styles.panels__container}>
                 <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
-                {talent?.reverse().map((item: { name: string }, index: number, array: []) => {
-
+                {talent?.map((item: { name: string, shortBio: string, _id: string }, index: number, array: []) => {
                     return (
-                        <Panel key={index} text={item.name} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
+                        <Panel key={item._id} text={item.name} shortBio={item.shortBio} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
                     )
                 })}
             </section>

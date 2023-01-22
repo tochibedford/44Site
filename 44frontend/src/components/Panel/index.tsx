@@ -3,31 +3,34 @@ import arrow from "./images/arrow_blue.svg"
 import { Link } from "react-router-dom"
 
 interface IPanelBase {
-    text: string;
-    last?: boolean;
-    flipped?: boolean;
-    noInfo?: boolean;
+    text: string
+    last?: boolean
+    flipped?: boolean
 }
 
 type IPanelConditional = {
-    action: "link";
+    action: "link"
     url: string
-    icon?: string;
-    subtitle?: string;
-    isExternalLink?: boolean;
-    setIsOpen?: never;
+    icon?: string
+    subtitle?: string
+    shortBio?: never
+    noInfo?: true
+    isExternalLink?: boolean
+    setIsOpen?: never
 } | {
-    action: "button";
+    action: "button"
     url?: never
-    icon?: never;
-    subtitle?: never;
+    icon?: never
+    subtitle?: never
     isExternalLink?: never
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    noInfo?: boolean
+    shortBio?: string
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IPanel = IPanelBase & IPanelConditional
 
-export default function Panel({ text, last = false, subtitle, isExternalLink = false, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen }: IPanel) {
+export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen }: IPanel) {
     if (action === "link" && url) { // panel acts as a link
         if (isExternalLink) {
             return (
@@ -80,7 +83,7 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                 <div className={styles.panel__action__detail}>
                     {!noInfo ? (
                         <div className={styles.panel__detail__container}>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad ex deleniti ratione a nam tempore dolorem tempora rem voluptatum!
+                            {shortBio}
                         </div>) :
                         (<div className={styles.arrow__container}>
                             <img src={arrow} alt="arrow icon" className={flipped ? styles.image__flipped : ""} />
