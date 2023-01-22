@@ -16,6 +16,7 @@ type IPanelConditional = {
     icon?: string
     subtitle?: string
     isExternalLink?: boolean
+    photo?: never
     setIsOpen?: never
 } | {
     action: "button"
@@ -23,12 +24,13 @@ type IPanelConditional = {
     icon?: never
     subtitle?: never
     isExternalLink?: never
+    photo?: string
     setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IPanel = IPanelBase & IPanelConditional
 
-export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen }: IPanel) {
+export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, photo, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen }: IPanel) {
     if (action === "link" && url) { // panel acts as a link
         if (isExternalLink) {
             return (
@@ -58,7 +60,6 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                     <div className={styles.title}>{text}</div>
                     <div className={styles.subtitle}>{subtitle}</div>
                 </div>
-                {/* <div className={`${styles.text__content}`}>{text}</div> */}
                 <div className={styles.divider} />
                 <div className={styles.panel__action__detail}>
                     {!noInfo ? (
@@ -76,7 +77,12 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
     } else {
         return (
             <div className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`} onClick={() => { setIsOpen && setIsOpen(true) }}>
-                <div className={styles.text__content}>{text}</div>
+                <div className={styles.text__content}>
+                    {text}
+                    <div className={`${styles.image__container} ${!flipped ? styles.flipped : ""}`}>
+                        <img src={photo} />
+                    </div>
+                </div>
                 <div className={styles.divider} />
                 <div className={styles.panel__action__detail}>
                     {!noInfo ? (
@@ -84,11 +90,11 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                             {shortBio}
                         </div>) :
                         (<div className={styles.arrow__container}>
-                            <img src={arrow} alt="arrow icon" className={flipped ? styles.image__flipped : ""} />
+                            <img src={arrow} alt="arrow icon" className={flipped ? styles.flipped : ""} />
                         </div>)
                     }
-
                 </div>
+
             </div>
         )
 

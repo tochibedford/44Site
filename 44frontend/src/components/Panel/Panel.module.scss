@@ -42,6 +42,14 @@
         width: 60%;
         padding: pix-rem(10);
       }
+
+      .image__container {
+        opacity: 0.7;
+
+        img {
+          filter: saturate(0) blur(0.2px);
+        }
+      }
     }
 
     .small {
@@ -69,6 +77,7 @@
   }
 
   .text__content {
+    position: relative;
     width: 90%;
     font-size: clamp(pix-rem(70), 5vw, pix-rem(130));
     font-weight: 700;
@@ -82,7 +91,7 @@
     padding: pix-rem(50);
     text-transform: uppercase;
     color: themeColors.$default_foreground;
-    overflow-x: hidden;
+    overflow: hidden;
 
     @include mediaQueryMin(1200px) {
       font-size: clamp(pix-rem(20), 6vw, pix-rem(130));
@@ -90,6 +99,32 @@
 
     @include mediaQueryMax(768px) {
       font-size: clamp(pix-rem(40), 8vw, pix-rem(130));
+    }
+
+    .image__container {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      opacity: 0;
+      transition: opacity 0.4s;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        filter: saturate(0) blur(5px);
+        transition: filter 0.4s;
+      }
+
+      &.flipped {
+        right: unset;
+        left: 0;
+        width: 300px;
+      }
     }
   }
 
