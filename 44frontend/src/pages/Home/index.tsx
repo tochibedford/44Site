@@ -12,8 +12,6 @@ export default function Home() {
     talent = talent?.reduce((acc: any, curr: any) => {
         return [curr].concat(acc)
     }, [])
-
-    console.log(talent)
     return (
         <>
             <section className={styles.hero}>
