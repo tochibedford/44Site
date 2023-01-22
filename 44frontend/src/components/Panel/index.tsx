@@ -23,7 +23,7 @@ type IPanelConditional = {
     icon?: never
     subtitle?: never
     isExternalLink?: never
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IPanel = IPanelBase & IPanelConditional
