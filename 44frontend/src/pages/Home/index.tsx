@@ -1,11 +1,15 @@
 import styles from "./Home.module.scss"
 import CardCarousel from "./CardCarousel"
 import Panel from "../../components/Panel"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import DiscographyPanel from "./DiscographyPanel"
+import DataContext from "../../context/data"
 
 export default function Home() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
+    const data = useContext(DataContext)
+    const talent = data?.talent
+
     return (
         <>
             <section className={styles.hero}>
@@ -16,17 +20,12 @@ export default function Home() {
                 <div className={styles.carousel__container}><CardCarousel /></div>
             </section>
             <section className={styles.panels__container}>
-                {(["Full Discography", "JOHN WAV", "TOCHI BEDFORD", "JOHNSON IP"]).map((item, index, array) => {
+                <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
+                {talent?.reverse().map((item: { name: string }, index: number, array: []) => {
 
-                    if (item === "Full Discography") {
-                        return (
-                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} noInfo={item === "Full Discography"} action="link" url="/discography" />
-                        )
-                    } else {
-                        return (
-                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
-                        )
-                    }
+                    return (
+                        <Panel key={index} text={item.name} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
+                    )
                 })}
             </section>
             <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />

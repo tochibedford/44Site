@@ -5,6 +5,16 @@ import DiscographyPanel from "../../Home/DiscographyPanel"
 import { useState } from "react"
 import CardCarousel from "../../Home/CardCarousel"
 import mbLogo from "../../../assets/mbLogo.png"
+import client from "../../../client"
+import imageUrlBuilder from "@sanity/image-url"
+import { SanityImageSource } from "@sanity/image-url/lib/types/types"
+
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: SanityImageSource) {
+    return builder.image(source)
+}
+
 
 export default function TochiTests() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
@@ -41,6 +51,10 @@ export default function TochiTests() {
 
             <ComponentGroup author="Tochi" componentName="Card Carousel">
                 <CardCarousel />
+            </ComponentGroup>
+
+            <ComponentGroup author="Tochi" componentName="Sanity Calls tests">
+                <img src={urlFor("image-72e43636fa2f561015d62339b62f60b9036d26a4-1641x2500-jpg").width(500).url()} />
             </ComponentGroup>
         </>
     )

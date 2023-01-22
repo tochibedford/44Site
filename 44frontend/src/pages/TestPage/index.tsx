@@ -3,11 +3,19 @@ import styles from "./TestPage.module.scss"
 import JohnTests from "./JohnTests"
 import TochiTests from "./TochiTests"
 import MartieTests from "./MartieTests"
-import Layout from "../../components/NavLayout"
+import Navbar from "../../components/Navbar"
+import { useContext, useEffect } from "react"
+import DataContext from "../../context/data"
 
 export default function TestPage() {
+    // testing data context
+    const data = useContext(DataContext)
+    useEffect(() => {
+        console.log(data)
+    }, [data])
     return (
         <>
+            <Navbar />
             <div className={styles.bodyContainer}>
                 <div className={styles.body}>
                     <h1>

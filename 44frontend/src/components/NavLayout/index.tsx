@@ -1,15 +1,14 @@
 import Navbar from "../Navbar";
 import styles from "./NavLayout.module.scss";
+import { Outlet } from "react-router-dom";
 
-type INavLayout = {
-    children: React.ReactNode
-}
-
-export default function NavLayout({ children }: INavLayout) {
+export default function NavLayout() {
     return (
         <div className={styles.layout__container}>
             <Navbar />
-            <main className={styles.main__container}>{children}</main>
+            <main className={styles.main__container}>
+                <Outlet />
+            </main>
         </div>
     )
 }
