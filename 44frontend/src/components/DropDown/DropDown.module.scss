@@ -8,7 +8,8 @@
   color: themeColors.$default_foreground;
   font-weight: 900;
   border-radius: 1em;
-  min-width: 300px;
+  max-width: 300px;
+  min-width: 200px;
   display: flex;
   justify-content: space-between;
   transition: 0.2s;
@@ -82,6 +83,7 @@
         width: 100%;
         position: relative;
         transition: 0.2s;
+        text-align: center;
 
         &:first-child {
           border-top: none;
