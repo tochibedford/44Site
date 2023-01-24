@@ -1,4 +1,6 @@
-export default {
+import { Rule, SchemaTypeDefinition } from "sanity"
+
+const schema: SchemaTypeDefinition = {
     name: 'work',
     type: 'document',
     title: 'Work',
@@ -36,8 +38,24 @@ export default {
             name: 'cover',
             type: 'image',
             title: 'Cover Art',
-            desctription: 'Cover Art for this work',
             validation: (Rule: any) => Rule.required()
+        },
+        {
+            name: "links",
+            title: "Links",
+            type: "array",
+            of: [{
+                name: "dspLinks",
+                title: "DSP Links",
+                type: "object",
+                description: "Valid link to the song/project on the DSP",
+                fields: [
+                    { name: "DSP", type: "reference", to: [{ type: "dsp", validation: (rule: Rule) => rule.required() }] },
+                    { name: "dspLink", type: "url", validation: (rule: Rule) => rule.required() }
+                ]
+            }]
         }
     ]
 }
+
+export default schema
