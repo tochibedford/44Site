@@ -6,17 +6,20 @@ export default {
         {
             name: 'name',
             type: 'string',
-            title: 'Name'
+            title: 'Name',
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: 'shortBio',
             type: 'string',
-            title: 'Short Bio'
+            title: 'Short Bio',
+            validation: (Rule: any) => Rule.required().min(20).max(250)
         },
         {
             name: 'profileImage',
             type: 'image',
-            title: 'Profile Image'
+            title: 'Profile Image',
+            validation: (Rule: any) => Rule.required()
         }
     ]
 }

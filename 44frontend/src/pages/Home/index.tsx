@@ -1,11 +1,18 @@
 import styles from "./Home.module.scss"
 import CardCarousel from "./CardCarousel"
 import Panel from "../../components/Panel"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import DiscographyPanel from "./DiscographyPanel"
+import DataContext, { talentSchema, urlFor } from "../../context/data"
 
 export default function Home() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
+    const data = useContext(DataContext)
+    console.log(data)
+    let talent = data?.talent
+    talent = talent?.reduce((acc: talentSchema[], curr: talentSchema) => {
+        return [curr].concat(acc)
+    }, [])
     return (
         <>
             <section className={styles.hero}>
@@ -16,17 +23,11 @@ export default function Home() {
                 <div className={styles.carousel__container}><CardCarousel /></div>
             </section>
             <section className={styles.panels__container}>
-                {(["Full Discography", "JOHN WAV", "TOCHI BEDFORD", "JOHNSON IP"]).map((item, index, array) => {
-
-                    if (item === "Full Discography") {
-                        return (
-                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} noInfo={item === "Full Discography"} action="link" url="/discography" />
-                        )
-                    } else {
-                        return (
-                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
-                        )
-                    }
+                <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
+                {talent?.map((item, index: number, array: talentSchema[]) => {
+                    return (
+                        <Panel key={item._id} text={item.name} shortBio={item.shortBio} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" photo={urlFor(item.profileImage.asset._ref).width(500).url()} setIsOpen={setIsDiscographyOpen} />
+                    )
                 })}
             </section>
             <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
