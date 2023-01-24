@@ -3,6 +3,7 @@ import NavButton from "../../../components/NavButton/NavButton"
 import MusicGridItem from "../../../components/MusicGridItem"
 import DropdownBtn from "../../../components/DropdownBtn";
 import DropDown from "../../../components/DropDown";
+import MusicCardCarousel from "../../Home/MusicCardCarousel";
 
 export default function JohnTests() {
 
@@ -31,6 +32,9 @@ export default function JohnTests() {
             </ComponentGroup>
             <ComponentGroup author="John and Tochi" componentName="Dropdown">
                 <DropDown />
+            </ComponentGroup>
+            <ComponentGroup author="John and Tochi" componentName="Carousel">
+                <MusicCardCarousel />
             </ComponentGroup>
 
 

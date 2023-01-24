@@ -1,0 +1,42 @@
+@use "../../../utitlities/themeColors";
+@use "../../../utitlities/functions";
+
+.container {
+  position: relative;
+  width: 376px;
+  height: 490px;
+
+  .card {
+    // z-index: 10;
+    // top: 0px;
+    // transform-origin: top;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform-origin: center;
+
+    &:nth-child(1) {
+      z-index: 10;
+      top: 0px;
+      transform-origin: top;
+      transform: scale(1);
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      z-index: 9;
+      top: 40px;
+      left: 31px;
+      transform-origin: top;
+    //   transform: scale(0.9);
+      opacity: 0.6;
+    }
+    &:nth-child(3) {
+      z-index: 8;
+      top: 66px;
+      left: 54px;
+      transform-origin: top;
+    //   transform: scale(0.8);
+      opacity: 0.3;
+    }
+  }
+}
