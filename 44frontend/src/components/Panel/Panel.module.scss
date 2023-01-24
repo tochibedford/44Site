@@ -138,15 +138,10 @@ $tablets: 768;
   }
 
   .small {
-    // white-space: nowrap;
-    // width: 80%;
-    // height: max-content;
     .title {
-      // width: 100%;
       font-size: 0.9em;
     }
     .subtitle {
-      // width: 100%;
       font-size: 0.4em;
       letter-spacing: -0.03em;
       color: themeColors.$subtitle_color;
