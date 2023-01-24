@@ -22,7 +22,7 @@ export default function Feed() {
                 {
                     feed?.map((item, index: number, array: feedSchema[]) => {
                         return (
-                            <Panel icon={urlFor(item.logo.asset._ref).url()} text={item.publicationName} last={true} isExternalLink={true} subtitle={item.title} noInfo={true} action="link" url={item.link} />
+                            <Panel key={index} icon={urlFor(item.logo.asset._ref).url()} text={item.publicationName} isExternalLink={true} subtitle={item.title} noInfo={true} action="link" url={item.link} last={index === array.length - 1} flipped={(index % 2 !== 0)} />
                         )
                     })
                 }
