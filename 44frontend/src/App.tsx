@@ -11,8 +11,7 @@ import DataContext from './context/data';
 
 function App() {
   const [data, setData] = useState(null)
-  // 
-  const query = '*[_type == "talent" || _type == "work" || _type == "feed"] {_id, _type, name, profileImage, shortBio, title, publicationName, logo, link, artistName, features, cover, contributor}'
+  const query = '*[_type == "talent" || _type == "work" || _type == "feed" || _type == "dsp"] {_id, _type, name, profileImage, shortBio, title, publicationName, logo, link, artistName, features, cover, contributor, icon, links}'
   useEffect(() => {
     client.fetch(query).then((data: any) => {
       data = data.map((d: any) => {
