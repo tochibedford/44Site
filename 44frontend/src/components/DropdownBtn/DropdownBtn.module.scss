@@ -41,9 +41,9 @@
   -ms-overflow-style: none; /*MNoz and Edge */
   scrollbar-width: none;
 
-  &::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-}
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 
   .items {
     font-weight: 900;
@@ -54,25 +54,10 @@
     align-items: center;
     justify-content: center;
 
-    // &:hover {
-    //     width: pix-rem(356);
-    //     height: pix-rem(608);
-    //     border: 3px solid themeColors.$subtitle_color;
-    //     border-radius: pix-rem(28);
-    //     background: themeColors.$subtitle_color;
-    //     color: themeColors.$default_background;
-    // }
-   
-
-    .solidLine{
-        border-top: 1px solid themeColors.$subtitle_color;
-        width: pix-rem(284);
-        margin-top: pix-rem(32);
-        
-        
+    .solidLine {
+      border-top: 1px solid themeColors.$subtitle_color;
+      width: pix-rem(284);
+      margin-top: pix-rem(32);
     }
   }
-
-
-
 }

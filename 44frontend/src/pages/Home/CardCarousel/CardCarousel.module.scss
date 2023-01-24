@@ -1,0 +1,49 @@
+@use "../../../utitlities/themeColors";
+@import "../../../utitlities/functions";
+
+$card-gap: 0.5em;
+.container {
+  display: grid;
+  z-index: 1;
+  grid-template-columns: 1fr;
+
+  .card__wrapper {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      z-index: -1;
+    }
+
+    &:nth-child(1) {
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-$card-gap, -$card-gap);
+      transition: 0.5s;
+    }
+
+    &:nth-child(2) {
+      opacity: 1;
+      animation: carouselChange2 3s infinite;
+      animation-direction: normal;
+      transition: 1s;
+      transition-delay: 0.5s;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.5;
+      transform: translate($card-gap, $card-gap);
+      animation-direction: normal;
+      transition: 1.2s;
+      transition-delay: 0.5s;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.2;
+      transform: translate($card-gap + $card-gap, $card-gap + $card-gap);
+      animation-direction: normal;
+      transition: 0.4s;
+    }
+  }
+}

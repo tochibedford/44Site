@@ -1,2 +1,58 @@
 @use "../../utitlities/themeColors";
-@use "../../utitlities/functions";
+@import "../../utitlities/functions";
+
+.hero {
+  width: 100%;
+  display: flex;
+  margin-bottom: pix-rem(100);
+
+  @include mediaQueryMax(768px) {
+    flex-direction: column;
+  }
+
+  .page__info {
+    margin-right: auto;
+    @include mediaQueryMax(768px) {
+      margin-bottom: 2.5em;
+    }
+    .title {
+      text-transform: capitalize;
+      font-size: clamp(pix-rem(100), 16vw, pix-rem(300));
+      letter-spacing: -0.2em;
+      white-space: pre;
+      font-weight: bold;
+
+      @include mediaQueryMax(768px) {
+        font-size: clamp(pix-rem(100), 40vw, pix-rem(300));
+      }
+    }
+
+    .subtitle {
+      font-size: pix-rem(60);
+      letter-spacing: -0.05em;
+      color: themeColors.$subtitle_color;
+      font-weight: 900;
+      line-height: pix-rem(92);
+
+      @include mediaQueryMax(768px) {
+        font-size: pix-rem(40);
+        line-height: pix-rem(60);
+      }
+    }
+  }
+
+  .carousel__container {
+    border-left: 1px solid themeColors.$default_foreground;
+    padding-left: pix-rem(62);
+    display: flex;
+    align-items: center;
+
+    @include mediaQueryMax(768px) {
+      border: 0;
+      border-top: 1px solid themeColors.$default_foreground;
+      padding-top: 2.5em;
+      padding-left: 0;
+      justify-content: center;
+    }
+  }
+}
