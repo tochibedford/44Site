@@ -8,7 +8,6 @@ import DataContext, { talentSchema, urlFor } from "../../context/data"
 export default function Home() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
     const data = useContext(DataContext)
-    console.log(data)
     let talent = data?.talent
     talent = talent?.reduce((acc: talentSchema[], curr: talentSchema) => {
         return [curr].concat(acc)

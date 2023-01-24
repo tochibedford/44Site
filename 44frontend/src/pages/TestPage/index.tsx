@@ -10,9 +10,7 @@ import DataContext from "../../context/data"
 export default function TestPage() {
     // testing data context
     const data = useContext(DataContext)
-    useEffect(() => {
-        console.log(data)
-    }, [data])
+
     return (
         <>
             <Navbar />
