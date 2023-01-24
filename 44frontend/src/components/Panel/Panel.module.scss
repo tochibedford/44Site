@@ -87,8 +87,7 @@ $tablets: 768;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: width 0.8s cubic-bezier(0.74, -0.29, 0.94, 0.5), color 0.2s,
-      padding 0.5s;
+    transition: width 0.8s, color 0.2s, padding 0.5s;
     padding: pix-rem(50);
     text-transform: uppercase;
     color: themeColors.$default_foreground;
@@ -139,11 +138,15 @@ $tablets: 768;
   }
 
   .small {
+    // white-space: nowrap;
+    // width: 80%;
+    // height: max-content;
     .title {
-      width: 100%;
+      // width: 100%;
+      font-size: 0.9em;
     }
     .subtitle {
-      width: 100%;
+      // width: 100%;
       font-size: 0.4em;
       letter-spacing: -0.03em;
       color: themeColors.$subtitle_color;
@@ -157,8 +160,8 @@ $tablets: 768;
 
   .panel__action__detail {
     opacity: 0;
-    transition: width 0.8s cubic-bezier(0.74, -0.29, 0.94, 0.5),
-      opacity 1s cubic-bezier(0.74, -0.29, 0.94, 0.5), color 0.2s;
+    transition: width 0.8s, opacity 1s cubic-bezier(0.74, -0.29, 0.94, 0.5),
+      color 0.2s;
     width: 10%;
     overflow: hidden;
     padding: pix-rem(10);
