@@ -6,7 +6,7 @@ import twitter from "../../assets/twitter.png"
 
 export default function Footer() {
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.footerWrapper}>
                 <div className={styles.newsletterWrapper}>
                     <h1 className={styles.title}>NEWSLETTER</h1>
@@ -16,7 +16,7 @@ export default function Footer() {
                             <input className={styles.input} placeholder="First name"></input>
                             <input className={styles.input} placeholder="Last name"></input>
                         </div>
-                        <div>
+                        <div className={styles.line__two}>
                             <input className={styles.inputTwo} placeholder="Email Address"></input>
                             <button className={styles.buttonWrapper}>SUBSCRIBE</button>
                         </div>
@@ -51,6 +51,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
