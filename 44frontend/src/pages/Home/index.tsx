@@ -22,6 +22,9 @@ export default function Home() {
                 </div>
                 <div className={styles.carousel__container}><CardCarousel /></div>
             </section>
+
+
+
             <section className={styles.panels__container}>
                 <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
                 {talent?.map((item, index: number, array: talentSchema[]) => {
@@ -31,6 +34,9 @@ export default function Home() {
                 })}
             </section>
             <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
+
+
+            
         </>
     )
 }
