@@ -11,6 +11,10 @@ export default function DropDown() {
         setSelected((e.target as HTMLInputElement).value)
     }
 
+    const handleChangeInner = (e: FormEvent) => {
+        // (e.target as HTMLInputElement).checked === 
+    }
+
     const handleToggle = (e: ChangeEvent) => {
         setIsToggled(prevState => !prevState)
         e.stopPropagation()
@@ -35,7 +39,7 @@ export default function DropDown() {
                     {dropdownItems.map(item => {
                         return (
                             <div className={styles.option} key={uuid()}>
-                                <input type="radio" name="selected" value={item} checked={selected === item ? true : false} />
+                                <input type="radio" name="selected" value={item} checked={selected === item ? true : false} readOnly />
                                 {item}
                             </div>
                         )

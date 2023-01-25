@@ -41,7 +41,6 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                     if (flipped) {
                         panel.style.right = "0px"
                         panel.style.left = ""
-                        // panel.style.right = "0px"
                     } else {
                         panel.style.left = "0px"
                         panel.style.right = ""
@@ -61,7 +60,6 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
             if (panel) {
                 const text__content = e.currentTarget?.querySelector(`.${styles.text__content}`) as HTMLDivElement
                 if (flipped) {
-                    console.log(Math.min(text__content.getBoundingClientRect().width - 100, Math.max(100, text__content.getBoundingClientRect().width - (e.clientX - text__content.getBoundingClientRect().x))))
                     panel.style.right = (`${Math.min(text__content.getBoundingClientRect().width - 300, Math.max(-100, text__content.getBoundingClientRect().width - (e.clientX - text__content.getBoundingClientRect().x) - 200))}px`)
                 } else {
                     panel.style.left = (`${Math.min(text__content.getBoundingClientRect().width - 100, Math.max(100, e.clientX - text__content.getBoundingClientRect().x))}px`)
