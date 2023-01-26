@@ -2,13 +2,13 @@ import styles from "./Discography.module.scss";
 import DropDown from "../../components/DropDown";
 import Panel from "../../components/Panel";
 import { useContext } from "react";
-import DataContext, { talentSchema, urlFor } from "../../context/data";
+import DataContext, { workSchema, urlFor } from "../../context/data";
 
 export default function Discography() {
   const data = useContext(DataContext);
-  console.log(data)
-  let talent = data?.talent;
-  talent = talent?.reduce((acc: talentSchema[], curr: talentSchema) => {
+  console.log(data);
+  let work = data?.work;
+  work = work?.reduce((acc: workSchema[], curr: workSchema) => {
     return [curr].concat(acc);
   }, []);
 
@@ -27,14 +27,17 @@ export default function Discography() {
       </section>
 
       <section className={styles.panels__container}>
-        <Panel
-          text="SAINT AUSTIN: RATHER BE"
-          noInfo={true}
-          action="link"
-          url="/discography"
-          flipped={true}
-        />
-
+        {work?.map((item, index: number, array: workSchema[]) => {
+          return (
+            <Panel
+              key={item._id}
+              text={item.title}
+              flipped={true}
+              last={index === array.length - 1}
+              action="button"
+            />
+          );
+        })}
       </section>
     </>
   );
