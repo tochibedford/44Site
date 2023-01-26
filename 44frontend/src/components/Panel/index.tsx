@@ -19,6 +19,7 @@ type IPanelConditional = {
     isExternalLink?: boolean
     photo?: never
     setIsOpen?: never
+    isDiscography?: boolean
 } | {
     action: "button"
     url?: never
@@ -26,12 +27,13 @@ type IPanelConditional = {
     subtitle?: never
     isExternalLink?: never
     photo?: string
+    isDiscography?: never
     setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IPanel = IPanelBase & IPanelConditional
 
-export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, photo, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen }: IPanel) {
+export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, photo, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen, isDiscography }: IPanel) {
     const panelRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         const handleResize = (e: Event) => {
@@ -68,7 +70,7 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
         }
     }
     if (action === "link" && url) { // panel acts as a link
-        if (isExternalLink) {
+        if (isExternalLink) { // panel acts as an external link
             return (
                 <a href={url} target="_blank" className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`}>
                     <div className={`${styles.text__content} ${subtitle ? styles.small : ""}`}>
@@ -79,9 +81,9 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                     <div className={styles.panel__action__detail}>
                         {!noInfo ? (
                             <div className={styles.panel__detail__container}>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad ex deleniti ratione a nam tempore dolorem tempora rem voluptatum!
+                                {shortBio}
                             </div>) :
-                            (<div className={`${styles.arrow__container} ${icon ? styles.custom__icon : ""}`}>
+                            (<div className={`${styles.arrow__container} ${icon ? styles.custom__icon : ""} ${isDiscography ? styles.cover : ""}`}>
                                 <img src={icon} alt="arrow icon" className={(flipped && !icon) ? styles.image__flipped : ""} />
                             </div>)
                         }
@@ -90,7 +92,7 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                 </a>
             )
         }
-        return (
+        return ( //panel acts as an internal link
             <Link to={url} className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`}>
                 <div className={`${styles.text__content} ${subtitle ? styles.small : ""}`}>
                     <div className={styles.title}>{text}</div>
@@ -100,7 +102,7 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
                 <div className={styles.panel__action__detail}>
                     {!noInfo ? (
                         <div className={styles.panel__detail__container}>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ad ex deleniti ratione a nam tempore dolorem tempora rem voluptatum!
+                            {shortBio}
                         </div>) :
                         (<div className={styles.arrow__container}>
                             <img src={icon} alt="arrow icon" className={flipped ? styles.image__flipped : ""} />
