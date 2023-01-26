@@ -8,6 +8,7 @@
   .main__container {
     width: 100%;
     padding: pix-rem(53);
+    padding-bottom: 0;
 
     @include mediaQueryMax(768px) {
       padding: pix-rem(53) pix-rem(10);

@@ -1,0 +1,255 @@
+@use "../../utitlities/themeColors";
+@import "../../utitlities/functions";
+
+.container {
+  padding: 0 pix-rem(53);
+
+  @include mediaQueryMax(768px) {
+    padding: 0 pix-rem(10);
+  }
+  .footerWrapper {
+    display: flex;
+    justify-content: space-between;
+    // border-top: 1px solid themeColors.$default_foreground;
+    height: 100%;
+    position: relative;
+
+    @include mediaQueryMax(1024px) {
+      flex-direction: column;
+    }
+
+    .newsletterWrapper {
+      padding: 0 pix-rem(0) 0 pix-rem(30);
+      overflow: hidden;
+      flex: 0.7;
+      @include mediaQueryMax(1024px) {
+        padding: 0 pix-rem(10) 0 pix-rem(10);
+      }
+
+      .title {
+        letter-spacing: -0.11em;
+        font-size: clamp(pix-rem(100), 4vw, pix-rem(180));
+
+        @include mediaQueryMax(768px) {
+          font-size: clamp(pix-rem(65), 17vw, pix-rem(150));
+        }
+      }
+
+      .subtitle {
+        font-size: pix-rem(50);
+        letter-spacing: -0.08em;
+        width: 80%;
+
+        @include mediaQueryMax(1024px) {
+          width: 100%;
+        }
+
+        @include mediaQueryMax(600px) {
+          font-size: pix-rem(30);
+        }
+      }
+
+      .newsletterForm {
+        margin: pix-rem(50) 0 0;
+        width: 90%;
+        :first-child:first-child {
+          border-right: 0;
+        }
+        :first-child,
+        :last-child {
+          display: flex;
+          align-items: center;
+        }
+        @include mediaQueryMax(1024px) {
+          width: 100%;
+        }
+
+        .input {
+          height: 100px;
+          padding: 0 0 0 pix-rem(20);
+          width: 50%;
+          font-size: pix-rem(40);
+          letter-spacing: -0.05em;
+          border: 1px solid themeColors.$default_foreground;
+          background: rgba($color: #ffffff, $alpha: 0.59);
+          outline: none;
+
+          @include mediaQueryMax(600px) {
+            height: 60px;
+            font-size: pix-rem(20);
+          }
+        }
+
+        .line__two {
+          width: 100%;
+          justify-content: center;
+          .inputTwo {
+            height: 100px;
+            width: 70%;
+            padding: 0 0 0 pix-rem(20);
+            font-size: pix-rem(40);
+            letter-spacing: -0.05em;
+            border-bottom: 1px solid themeColors.$default_foreground;
+            border-left: 1px solid themeColors.$default_foreground;
+            background: rgba($color: #ffffff, $alpha: 0.59);
+            outline: none;
+
+            @include mediaQueryMax(600px) {
+              height: 60px;
+              font-size: pix-rem(20);
+            }
+          }
+
+          .buttonWrapper {
+            height: 100px;
+            outline: none;
+            width: 30%;
+            min-width: 180px;
+            padding: 0 pix-rem(40);
+            display: flex;
+            justify-content: center;
+            font-size: pix-rem(25);
+            letter-spacing: -0.05em;
+            background: themeColors.$default_foreground;
+            color: #ffffff;
+            cursor: pointer;
+            @include mediaQueryMax(600px) {
+              height: 60px;
+              font-size: pix-rem(12);
+            }
+          }
+        }
+      }
+
+      .bottomDesktop {
+        padding-right: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: pix-rem(50) 0 0;
+
+        @include mediaQueryMax(1024px) {
+          display: none;
+        }
+
+        h1 {
+          font-size: pix-rem(25);
+          letter-spacing: -0.05em;
+          font-weight: 300;
+        }
+
+        .logo {
+          width: pix-rem(70);
+          height: pix-rem(70);
+        }
+      }
+    }
+    .socialLinksWrapper {
+      flex: 0.3;
+      transition: all 0.4s;
+      &:hover {
+        flex: 0.5;
+      }
+      .socialLinks {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px solid themeColors.$default_foreground;
+        height: 101%;
+        background: themeColors.$default_background;
+        transition: width 0.4s;
+        @include mediaQueryMax(1024px) {
+          margin: pix-rem(75) 0 0 0;
+          border-left: 0;
+          position: relative;
+          width: 100%;
+          &:hover {
+            width: 100%;
+          }
+        }
+      }
+
+      .socialLinks > *:nth-child(1) {
+        flex: 1 1 33%;
+
+        @include mediaQueryMax(1024px) {
+          border-top: 1px solid themeColors.$default_foreground;
+        }
+      }
+
+      .socialLinks > *:nth-child(2) {
+        flex: 1 1 33%;
+      }
+
+      .socialLinks > *:nth-child(3) {
+        flex: 1 1 33%;
+      }
+
+      .socialLinks li {
+        font-size: pix-rem(50);
+        list-style: none;
+        text-align: center;
+        padding: pix-rem(0) pix-rem(75) 0;
+        letter-spacing: -0.1em;
+        cursor: pointer;
+        gap: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid themeColors.$default_foreground;
+        &:hover {
+          transition: all 0.8s;
+
+          img {
+            transform: none;
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+            filter: saturate(0) brightness(0.4) sepia(100%) hue-rotate(167deg);
+          }
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+        img {
+          width: 0px;
+          height: 0px;
+          transform: translateX(40px) rotate(100deg);
+          transition: all 0.4s, transform 0.7s;
+          filter: saturate(0) brightness(0.45);
+          opacity: 0;
+          @include mediaQueryMax(1024px) {
+            display: none;
+          }
+        }
+        @include mediaQueryMax(1024px) {
+          padding: pix-rem(35) 0 pix-rem(35);
+          font-size: pix-rem(30);
+        }
+      }
+    }
+
+    .bottomMobile {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      margin: pix-rem(40) 0 0;
+      padding: 0 pix-rem(20) 0 pix-rem(20);
+
+      h1 {
+        font-size: pix-rem(20);
+        letter-spacing: -0.05em;
+        font-weight: 300;
+      }
+
+      .logo {
+        width: pix-rem(70);
+        height: pix-rem(70);
+      }
+
+      @include mediaQueryMax(1024px) {
+        display: flex;
+      }
+    }
+  }
+}

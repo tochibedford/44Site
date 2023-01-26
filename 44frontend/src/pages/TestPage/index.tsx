@@ -6,6 +6,7 @@ import MartieTests from "./MartieTests"
 import Navbar from "../../components/Navbar"
 import { useContext, useEffect } from "react"
 import DataContext from "../../context/data"
+import Footer from "../../components/Footer"
 
 export default function TestPage() {
     // testing data context
@@ -25,6 +26,7 @@ export default function TestPage() {
                     <MartieTests />
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
