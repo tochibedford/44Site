@@ -60,6 +60,7 @@
     height: 0;
     opacity: 0;
     transition: height 0.5s, opacity 0.5s;
+    z-index: 1;
 
     .optionsContainerContent {
       overflow-y: auto;
