@@ -16,10 +16,11 @@ type imageSchema = {
 
 export type workSchema = schemaBaseType & {
     title: string
-    features: string[]
+    features?: string[]
     artistName: string
     cover: imageSchema
     contributor: { _ref: string }[]
+    links: { dspLink: string }[]
 }
 
 export type feedSchema = schemaBaseType & {

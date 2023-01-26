@@ -1,12 +1,17 @@
 import { useContext } from "react"
 import DropDown from "../../components/DropDown"
-import DataContext, { workSchema } from "../../context/data"
+import Panel from "../../components/Panel"
+import DataContext, { dspSchema, urlFor, workSchema } from "../../context/data"
 import styles from "./Discography.module.scss"
 
 export default function Discography() {
     const data = useContext(DataContext)
     let work = data?.work
+    let dsps = data?.dsp
     work = work?.reduce((acc: workSchema[], curr: workSchema) => {
+        return [curr].concat(acc)
+    }, [])
+    dsps = dsps?.reduce((acc: dspSchema[], curr: dspSchema) => {
         return [curr].concat(acc)
     }, [])
     return (
@@ -19,14 +24,14 @@ export default function Discography() {
             </section>
             <DropDown />
             <section className={styles.panels__container}>
-                {/* <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
-                {talent?.map((item, index: number, array: talentSchema[]) => {
+                {work?.map((item, index: number, array: workSchema[]) => {
+                    const features = item.features !== undefined ? "feat: " + (new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })).format(item.features) : ""
+                    const url = item.links[0].dspLink
                     return (
-                        <Panel key={item._id} text={item.name} shortBio={item.shortBio} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" photo={urlFor(item.profileImage.asset._ref).width(500).url()} />
+                        <Panel key={item._id} text={item.title} subtitle={features} last={index === array.length - 1} action="link" url={url} icon={urlFor(item.cover.asset._ref).width(500).url()} isExternalLink={true} noInfo={true} />
                     )
-                })} */}
+                })}
             </section>
-            {/* <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} /> */}
         </>
     )
 }
