@@ -32,9 +32,12 @@ export default function Discography() {
             <Panel
               key={item._id}
               text={item.title}
+              noInfo={true} url="/"
+              subtitle={item.features}
+              isExternalLink = {true}
               flipped={true}
               last={index === array.length - 1}
-              action="button"
+              action="link"
             />
           );
         })}
