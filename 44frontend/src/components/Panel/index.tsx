@@ -73,12 +73,12 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
         if (isExternalLink) { // panel acts as an external link
             return (
                 <a href={url} target="_blank" className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`}>
-                    <div className={`${styles.text__content} ${subtitle ? styles.small : ""}`}>
+                    <div className={`${styles.text__content} ${subtitle ? styles.small : ""} ${isDiscography ? styles.song__info : ""}`}>
                         <div className={styles.title}>{text}</div>
                         <div className={styles.subtitle}>{subtitle}</div>
                     </div>
                     <div className={styles.divider} />
-                    <div className={styles.panel__action__detail}>
+                    <div className={`${styles.panel__action__detail} ${styles.song__action__detail}`}>
                         {!noInfo ? (
                             <div className={styles.panel__detail__container}>
                                 {shortBio}
