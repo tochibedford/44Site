@@ -1,2 +1,37 @@
 @use "../../utitlities/themeColors";
-@use "../../utitlities/functions";
+@import "../../utitlities/functions";
+
+.hero {
+  .page__info {
+    margin-right: auto;
+    margin-bottom: pix-rem(75);
+
+    .title {
+      text-transform: capitalize;
+      font-size: clamp(pix-rem(100), 12vw, pix-rem(220));
+      letter-spacing: -0.155em;
+      white-space: pre;
+      font-weight: bold;
+      @include mediaQueryMax(768px) {
+        font-size: clamp(pix-rem(50), 15vw, pix-rem(80));
+      }
+    }
+
+    .subtitle {
+      font-size: pix-rem(80);
+      letter-spacing: -0.05em;
+      color: themeColors.$subtitle_color;
+      font-weight: 900;
+      line-height: pix-rem(92);
+      width: 80%;
+
+      @include mediaQueryMax(768px) {
+        font-size: pix-rem(35);
+        line-height: pix-rem(45);
+      }
+    }
+  }
+}
+.panels__container {
+  margin-top: pix-rem(50);
+}

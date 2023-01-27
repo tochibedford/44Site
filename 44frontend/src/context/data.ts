@@ -3,23 +3,24 @@ import imageUrlBuilder from "@sanity/image-url"
 import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 import client from "../client"
 
+type schemaBaseType = {
+    _id: string
+    _type: string
+}
+
 type imageSchema = {
     asset: {
         _ref: string
     }
 }
 
-type schemaBaseType = {
-    _id: string
-    _type: string
-}
-
 export type workSchema = schemaBaseType & {
     title: string
-    features: string[]
+    features?: string[]
     artistName: string
     cover: imageSchema
     contributor: { _ref: string }[]
+    links: { dspLink: string }[]
 }
 
 export type feedSchema = schemaBaseType & {
@@ -35,10 +36,16 @@ export type talentSchema = schemaBaseType & {
     profileImage: imageSchema
 }
 
+export type dspSchema = schemaBaseType & {
+    name: string
+    icon: imageSchema
+}
+
 const DataContext = createContext<{
     work: workSchema[]
     feed: feedSchema[]
-    talent: talentSchema[]
+    talent: talentSchema[],
+    dsp: dspSchema[]
 } | null>(null)
 
 export const imgBuilder = imageUrlBuilder(client)

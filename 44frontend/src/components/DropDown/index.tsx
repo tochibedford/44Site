@@ -1,14 +1,23 @@
 import styles from "./DropDown.module.scss";
 import uuid from "react-uuid";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import DataContext, { talentSchema } from "../../context/data";
 
-export default function DropDown() {
-    const dropdownItems = ["Curated", "John Wav", "Tochi Bedford", "Johnson IP", "Trill Xoe", "KD", "Malik Bawa"];
-    const [selected, setSelected] = useState(dropdownItems[0])
+export default function DropDown({ selected, setSelected }: { selected: string, setSelected: React.Dispatch<React.SetStateAction<string>> }) {
+    const data = useContext(DataContext);
+    let talent = data?.talent
+    talent = talent?.reduce((acc: talentSchema[], curr: talentSchema) => {
+        return [curr].concat(acc)
+    }, [])
+    const dropdownItems = talent?.map(item => item.name);
     const [isToggled, setIsToggled] = useState(false)
 
     const handleChange = (e: FormEvent) => {
         setSelected((e.target as HTMLInputElement).value)
+    }
+
+    const handleChangeInner = (e: FormEvent) => {
+        // (e.target as HTMLInputElement).checked === 
     }
 
     const handleToggle = (e: ChangeEvent) => {
@@ -32,10 +41,10 @@ export default function DropDown() {
             <input type="checkbox" checked={isToggled} onChange={handleToggle} />
             <div className={styles.optionsContainer} onChange={handleChange}>
                 <div className={styles.optionsContainerContent}>
-                    {dropdownItems.map(item => {
+                    {dropdownItems?.map(item => {
                         return (
                             <div className={styles.option} key={uuid()}>
-                                <input type="radio" name="selected" value={item} checked={selected === item ? true : false} />
+                                <input type="radio" name="selected" value={item} checked={selected === item ? true : false} readOnly />
                                 {item}
                             </div>
                         )

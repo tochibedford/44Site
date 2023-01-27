@@ -8,7 +8,8 @@
   color: themeColors.$default_foreground;
   font-weight: 900;
   border-radius: 1em;
-  min-width: 300px;
+  max-width: 300px;
+  min-width: 200px;
   display: flex;
   justify-content: space-between;
   transition: 0.2s;
@@ -59,6 +60,7 @@
     height: 0;
     opacity: 0;
     transition: height 0.5s, opacity 0.5s;
+    z-index: 1;
 
     .optionsContainerContent {
       overflow-y: auto;
@@ -82,6 +84,7 @@
         width: 100%;
         position: relative;
         transition: 0.2s;
+        text-align: center;
 
         &:first-child {
           border-top: none;

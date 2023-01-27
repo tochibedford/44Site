@@ -1,6 +1,7 @@
 import Navbar from "../Navbar";
 import styles from "./NavLayout.module.scss";
 import { Outlet } from "react-router-dom";
+import Footer from "../Footer";
 
 export default function NavLayout() {
     return (
@@ -9,6 +10,7 @@ export default function NavLayout() {
             <main className={styles.main__container}>
                 <Outlet />
             </main>
+            <Footer />
         </div>
     )
 }
