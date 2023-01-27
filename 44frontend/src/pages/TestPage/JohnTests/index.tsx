@@ -3,9 +3,10 @@ import NavButton from "../../../components/NavButton/NavButton"
 import MusicGridItem from "../../Home/DiscographyPanel/components/MusicGridItem";
 import DropdownBtn from "../../../components/DropdownBtn";
 import DropDown from "../../../components/DropDown";
+import { useState } from "react";
 
 export default function JohnTests() {
-
+    const [selectedName, setSelectedName] = useState("Tochi Bedford")
     const MusicGridObject = {
         title: "Rather Be",
         artist: "Saint Austin",
@@ -30,7 +31,7 @@ export default function JohnTests() {
                 <MusicGridItem  {...MusicGridObject} />
             </ComponentGroup>
             <ComponentGroup author="John and Tochi" componentName="Dropdown">
-                <DropDown />
+                <DropDown selected={selectedName} setSelected={setSelectedName} />
             </ComponentGroup>
 
 
