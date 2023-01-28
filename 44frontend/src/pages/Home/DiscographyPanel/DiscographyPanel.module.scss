@@ -44,7 +44,7 @@
 
       .item {
         &:nth-last-child(-n + 5) {
-          transition: transform 0.4s;
+          transition: transform 0.6s;
           &:hover {
             transform: translateY(-50%);
           }

@@ -7,6 +7,7 @@ import DataContext, { talentSchema, urlFor } from "../../context/data"
 
 export default function Home() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
+    const [selectedName, setSelectedName] = useState("Tochi Bedford")
     const data = useContext(DataContext)
     let talent = data?.talent
     talent = talent?.reduce((acc: talentSchema[], curr: talentSchema) => {
@@ -25,11 +26,11 @@ export default function Home() {
                 <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
                 {talent?.map((item, index: number, array: talentSchema[]) => {
                     return (
-                        <Panel key={item._id} text={item.name} shortBio={item.shortBio} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" photo={urlFor(item.profileImage.asset._ref).width(500).url()} setIsOpen={setIsDiscographyOpen} />
+                        <Panel key={item._id} text={item.name} shortBio={item.shortBio} flipped={(index % 2 === 0)} last={index === array.length - 1} action="button" photo={urlFor(item.profileImage.asset._ref).width(500).url()} setIsOpen={setIsDiscographyOpen} setSelectedName={setSelectedName} />
                     )
                 })}
             </section>
-            <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
+            <DiscographyPanel selectedName={selectedName} isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
         </>
     )
 }
