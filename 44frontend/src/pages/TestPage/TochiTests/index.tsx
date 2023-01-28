@@ -42,8 +42,8 @@ export default function TochiTests() {
 
             <ComponentGroup author="Tochi" componentName="Discography on click">
                 <>Click the panel to bring out the discography pane</>
-                <Panel text={"John Wav"} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} setSelectedName={setSelectedName} />
-                <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
+                <Panel text={selectedName} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} setSelectedName={setSelectedName} />
+                <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} selectedName={selectedName} />
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Feed Panel">
