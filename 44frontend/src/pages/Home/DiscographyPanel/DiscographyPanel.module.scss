@@ -49,6 +49,14 @@
             transform: translateY(-50%);
           }
         }
+
+        &:nth-child(-n + 5) {
+          transition: height 0.3s;
+          &:hover {
+            height: 200%;
+            transform: none;
+          }
+        }
       }
 
       @include mediaQueryMax(1300px) {
@@ -58,6 +66,14 @@
             transition: transform 0.4s;
             &:hover {
               transform: translateY(-50%);
+            }
+          }
+
+          &:nth-child(-n + 4) {
+            transition: height 0.3s;
+            &:hover {
+              height: 200%;
+              transform: none;
             }
           }
         }
@@ -71,6 +87,14 @@
             transition: transform 0.4s;
             &:hover {
               transform: translateY(-50%);
+            }
+          }
+
+          &:nth-child(-n + 3) {
+            transition: height 0.3s;
+            &:hover {
+              height: 200%;
+              transform: none;
             }
           }
         }

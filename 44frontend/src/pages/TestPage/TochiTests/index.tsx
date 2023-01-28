@@ -18,6 +18,7 @@ function urlFor(source: SanityImageSource) {
 
 export default function TochiTests() {
     const [isDiscographyOpen, setIsDiscographyOpen] = useState(false)
+    const [selectedName, setSelectedName] = useState("Tochi Bedford")
     return (
         <>
             <ComponentGroup author="Tochi" componentName="Panel">
@@ -29,7 +30,7 @@ export default function TochiTests() {
                         )
                     } else {
                         return (
-                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} />
+                            <Panel key={index} text={item} flipped={!(index % 2 === 0)} last={index === array.length - 1} action="button" setIsOpen={setIsDiscographyOpen} setSelectedName={setSelectedName} />
                         )
                     }
                 })}
@@ -41,7 +42,7 @@ export default function TochiTests() {
 
             <ComponentGroup author="Tochi" componentName="Discography on click">
                 <>Click the panel to bring out the discography pane</>
-                <Panel text={"John Wav"} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} />
+                <Panel text={"John Wav"} last={true} noInfo={true} action="button" setIsOpen={setIsDiscographyOpen} setSelectedName={setSelectedName} />
                 <DiscographyPanel isOpen={isDiscographyOpen} setIsOpen={setIsDiscographyOpen} />
             </ComponentGroup>
 
