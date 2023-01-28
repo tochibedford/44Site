@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MusicCard from "../MusicCard"
 import styles from "./CardCarousel.module.scss"
 
@@ -44,6 +44,7 @@ function loopedListFromArray<T>(arr: T[]) { //converts an array into a Looped Li
 }
 
 export default function CardCarousel() {
+    const carouselContainerRef = useRef<HTMLDivElement>(null)
     const carouselElements = [
         <div className={styles.card__wrapper} key={0}>
             <MusicCard imgg={`https://picsum.photos/id/${Math.round(Math.random() * 100) + 29}/200/300`} />
@@ -59,7 +60,6 @@ export default function CardCarousel() {
         </div>,
 
     ]
-    //generate an 20 item array of music cards
 
     //turn array into looped link list
     const loopedListHead = loopedListFromArray(carouselElements)
@@ -67,7 +67,9 @@ export default function CardCarousel() {
 
     useEffect(() => {
         const t = setInterval(() => {
-            setCarousel([carousel[1], carousel[2], carousel[3], carousel[3]?.next])
+            if (!carouselContainerRef?.current?.matches(":hover")) {
+                setCarousel([carousel[1], carousel[2], carousel[3], carousel[3]?.next])
+            }
         }, 4000)
 
         return () => {
@@ -75,7 +77,7 @@ export default function CardCarousel() {
         }
     }, [carousel])
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={carouselContainerRef}>
             {carousel.map(item => item?.value)}
         </div>
     )
