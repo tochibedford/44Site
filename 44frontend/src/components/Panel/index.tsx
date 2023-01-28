@@ -19,6 +19,7 @@ type IPanelConditional = {
     isExternalLink?: boolean
     photo?: never
     setIsOpen?: never
+    setSelectedName?: never
     isDiscography?: boolean
 } | {
     action: "button"
@@ -28,12 +29,13 @@ type IPanelConditional = {
     isExternalLink?: never
     photo?: string
     isDiscography?: never
-    setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>
+    setSelectedName: React.Dispatch<React.SetStateAction<string>>
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 type IPanel = IPanelBase & IPanelConditional
 
-export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, photo, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen, isDiscography }: IPanel) {
+export default function Panel({ text, last = false, subtitle, isExternalLink = false, shortBio, photo, flipped = false, noInfo = false, icon = arrow, action = "link", url, setIsOpen, isDiscography, setSelectedName }: IPanel) {
     const panelRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         const handleResize = (e: Event) => {
@@ -114,7 +116,12 @@ export default function Panel({ text, last = false, subtitle, isExternalLink = f
         )
     } else {
         return (
-            <div ref={panelRef} onMouseMove={handleMouseMove} className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`} onClick={() => { setIsOpen && setIsOpen(true) }}>
+            <div ref={panelRef} onMouseMove={handleMouseMove} className={`${styles.container} ${last ? styles.last__panel : ""} ${flipped ? styles.flipped : ""}`} onClick={() => {
+                setIsOpen && setIsOpen(_ => {
+                    setSelectedName(text)
+                    return true
+                })
+            }}>
                 <div className={styles.text__content}>
                     {text}
                     <div className={`${styles.image__container} ${flipped ? styles.flipped : ""}`}>
