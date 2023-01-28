@@ -44,9 +44,17 @@
 
       .item {
         &:nth-last-child(-n + 5) {
-          transition: transform 0.4s;
+          transition: transform 0.6s;
           &:hover {
             transform: translateY(-50%);
+          }
+        }
+
+        &:nth-child(-n + 5) {
+          transition: height 0.3s;
+          &:hover {
+            height: 200%;
+            transform: none;
           }
         }
       }
@@ -60,6 +68,14 @@
               transform: translateY(-50%);
             }
           }
+
+          &:nth-child(-n + 4) {
+            transition: height 0.3s;
+            &:hover {
+              height: 200%;
+              transform: none;
+            }
+          }
         }
       }
 
@@ -71,6 +87,14 @@
             transition: transform 0.4s;
             &:hover {
               transform: translateY(-50%);
+            }
+          }
+
+          &:nth-child(-n + 3) {
+            transition: height 0.3s;
+            &:hover {
+              height: 200%;
+              transform: none;
             }
           }
         }
