@@ -37,7 +37,7 @@ export default function TochiTests() {
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Music Card">
-                < MusicCard />
+                < MusicCard coverArt={urlFor("image-68576de6b4d7981032fda0a108da4bb607ada9bb-500x500-jpg").url()} artistName="Tochi Bedford" features="feat: Cruel Santino" title="Disintegrate" />
             </ComponentGroup>
 
             <ComponentGroup author="Tochi" componentName="Discography on click">
