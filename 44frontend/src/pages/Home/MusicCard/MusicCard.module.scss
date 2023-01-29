@@ -9,9 +9,9 @@
   flex-direction: column;
   align-items: center;
   gap: pix-rem(24);
-  // cursor: pointer;
   transition: scale 0.1s;
   max-width: pix-rem(270);
+  height: pix-rem(400);
 
   &:hover {
     scale: 1.05;
@@ -42,7 +42,7 @@
 
     .title {
       color: #d3d3d3;
-      font-size: pix-rem(32);
+      font-size: pix-rem(20);
       font-weight: 900;
       margin-bottom: pix-rem(4);
       word-break: break-all;
@@ -50,7 +50,7 @@
 
     .artist {
       color: themeColors.$default_background;
-      font-size: pix-rem(16);
+      font-size: pix-rem(13);
       font-weight: 900;
       margin-bottom: pix-rem(4);
     }
@@ -58,13 +58,9 @@
     .features {
       color: themeColors.$default_background;
       font-weight: 900;
-      font-size: pix-rem(16);
+      font-size: pix-rem(10);
       margin-bottom: pix-rem(16);
       width: pix-rem(200);
-
-      &::before {
-        content: "feat. ";
-      }
     }
   }
 }

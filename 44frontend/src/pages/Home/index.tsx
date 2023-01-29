@@ -20,7 +20,7 @@ export default function Home() {
                     <h1 className={styles.title}>44DB</h1>
                     <h2 className={styles.subtitle}>The Super Producer Collective Redefining The Music Industry</h2>
                 </div>
-                <div className={styles.carousel__container}><CardCarousel /></div>
+                <div className={styles.carousel__container}>{data?.work && <CardCarousel />}</div>
             </section>
             <section className={styles.panels__container}>
                 <Panel text="Full Discography" noInfo={true} action="link" url="/discography" />
