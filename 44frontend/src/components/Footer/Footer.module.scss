@@ -157,6 +157,7 @@
         height: 101%;
         background: themeColors.$default_background;
         transition: width 0.4s;
+
         @include mediaQueryMax(1024px) {
           margin: pix-rem(75) 0 0 0;
           border-left: 0;
@@ -184,8 +185,10 @@
         flex: 1 1 33%;
       }
 
-      .socialLinks li {
+      .socialLinks a {
         font-size: pix-rem(50);
+        color: inherit;
+        text-decoration: inherit; 
         list-style: none;
         text-align: center;
         padding: pix-rem(0) pix-rem(75) 0;
@@ -227,6 +230,7 @@
           font-size: pix-rem(30);
         }
       }
+
     }
 
     .bottomMobile {
