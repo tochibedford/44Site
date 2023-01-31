@@ -193,11 +193,10 @@
         padding: pix-rem(0) pix-rem(75) 0;
         letter-spacing: -0.1em;
         cursor: pointer;
-        gap: 40px;
+        border-bottom: 1px solid themeColors.$default_foreground;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 1px solid themeColors.$default_foreground;
         &:hover {
           transition: all 0.8s;
 
@@ -231,6 +230,11 @@
 
         a {
           color: inherit;
+          width: 100%;
+          gap: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
