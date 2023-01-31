@@ -10,7 +10,6 @@
   .footerWrapper {
     display: flex;
     justify-content: space-between;
-    // border-top: 1px solid themeColors.$default_foreground;
     height: 100%;
     position: relative;
 
@@ -185,10 +184,10 @@
         flex: 1 1 33%;
       }
 
-      .socialLinks a {
+      .socialLinks li {
         font-size: pix-rem(50);
         color: inherit;
-        text-decoration: inherit; 
+        text-decoration: inherit;
         list-style: none;
         text-align: center;
         padding: pix-rem(0) pix-rem(75) 0;
@@ -229,8 +228,11 @@
           padding: pix-rem(35) 0 pix-rem(35);
           font-size: pix-rem(30);
         }
-      }
 
+        a {
+          color: inherit;
+        }
+      }
     }
 
     .bottomMobile {
