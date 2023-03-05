@@ -98,7 +98,7 @@ $tablets: 768;
     }
 
     @include mediaQueryMax(#{$tablets}px) {
-      font-size: clamp(pix-rem(40), 8vw, pix-rem(130));
+      font-size: clamp(pix-rem(33), 6vw, pix-rem(130));
       width: 60%;
       padding: pix-rem(10);
     }
