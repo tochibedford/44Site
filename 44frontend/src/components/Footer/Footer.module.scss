@@ -82,6 +82,11 @@
         .line__two {
           width: 100%;
           justify-content: center;
+
+          @include mediaQueryMax(500px) {
+            // justify-content: unset;
+          }
+
           .inputTwo {
             height: 100px;
             width: 70%;
@@ -97,13 +102,17 @@
               height: 60px;
               font-size: pix-rem(20);
             }
+
+            @include mediaQueryMax(500px) {
+              width: 50%;
+            }
           }
 
           .buttonWrapper {
             height: 100px;
             outline: none;
             width: 30%;
-            min-width: 180px;
+            // min-width: 180px;
             padding: 0 pix-rem(40);
             display: flex;
             justify-content: center;
@@ -115,6 +124,11 @@
             @include mediaQueryMax(600px) {
               height: 60px;
               font-size: pix-rem(12);
+            }
+
+            @include mediaQueryMax(500px) {
+              padding: 0 pix-rem(20);
+              width: 50%;
             }
           }
         }

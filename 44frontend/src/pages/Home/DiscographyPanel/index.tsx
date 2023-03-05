@@ -14,7 +14,6 @@ export default function DiscographyPanel({ selectedName, isOpen, setIsOpen }: ID
     const data = useContext(DataContext)
     let talent = data?.talent
     let work = data?.work
-    let dsps = data?.dsp
 
     let workElements: (JSX.Element | undefined)[] | undefined;
     const filteredTalentByName = talent?.filter(item => {
@@ -32,7 +31,6 @@ export default function DiscographyPanel({ selectedName, isOpen, setIsOpen }: ID
     }
     workElements = filteredWorkByTalentId?.map((item, index: number, array: workSchema[]) => {
         const features = item.features !== undefined ? (new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })).format(item.features) : ""
-        const url = item.links[0].dspLink
 
         return (
             <MusicGridItem key={item._id} controllerClass={styles.item} title={item.title} artist={item.artistName} features={features} album_art={urlFor(item.cover.asset._ref).width(500).url()} />
