@@ -33,14 +33,20 @@ export default function Footer() {
 
                     </div>
                     <ul className={styles.socialLinks}>
-                        <li>INSTAGRAM
-                            <img src={instagram}></img>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/44db.collective/">INSTAGRAM
+                                <img src={instagram}></img>
+                            </a>
                         </li>
-                        <li>TWITTER
-                            <img src={twitter}></img>
+                        <li>
+                            <a target="_blank" href="https://twitter.com/44db_collective">TWITTER
+                                <img src={twitter}></img>
+                            </a>
                         </li>
-                        <li>LINKEDIN
-                            <img src={linkedin}></img>
+                        <li>
+                            <a target="_blank" href="https://www.linkedin.com/company/44db/">LINKEDIN
+                                <img src={linkedin}></img>
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -10,7 +10,6 @@
   .footerWrapper {
     display: flex;
     justify-content: space-between;
-    // border-top: 1px solid themeColors.$default_foreground;
     height: 100%;
     position: relative;
 
@@ -157,6 +156,7 @@
         height: 101%;
         background: themeColors.$default_background;
         transition: width 0.4s;
+
         @include mediaQueryMax(1024px) {
           margin: pix-rem(75) 0 0 0;
           border-left: 0;
@@ -186,16 +186,17 @@
 
       .socialLinks li {
         font-size: pix-rem(50);
+        color: inherit;
+        text-decoration: inherit;
         list-style: none;
         text-align: center;
         padding: pix-rem(0) pix-rem(75) 0;
         letter-spacing: -0.1em;
         cursor: pointer;
-        gap: 40px;
+        border-bottom: 1px solid themeColors.$default_foreground;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-bottom: 1px solid themeColors.$default_foreground;
         &:hover {
           transition: all 0.8s;
 
@@ -225,6 +226,15 @@
         @include mediaQueryMax(1024px) {
           padding: pix-rem(35) 0 pix-rem(35);
           font-size: pix-rem(30);
+        }
+
+        a {
+          color: inherit;
+          width: 100%;
+          gap: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
