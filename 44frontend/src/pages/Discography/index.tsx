@@ -35,7 +35,10 @@ export default function Discography() {
     }
     workElements = filteredWorkByTalentId?.map((item, index: number, array: workSchema[]) => {
         const features = item.features !== undefined ? " feat: " + (new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })).format(item.features) : ""
-        const url = item.links[0].dspLink
+        let url = item?.links?.[0].dspLink
+        if (url === undefined) {
+            url = " "
+        }
 
         return (
             <Panel key={item._id} text={item.title} subtitle={item.artistName + features} last={index === array.length - 1} action="link" url={url} icon={urlFor(item.cover.asset._ref).width(500).url()} isExternalLink={true} noInfo={true} isDiscography={true} />
