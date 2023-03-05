@@ -118,6 +118,10 @@ $tablets: 768;
         opacity: 0.4;
       }
 
+      @include mediaQueryMax(640px) {
+        width: 100%;
+      }
+
       img {
         transform: translateX(-50%);
         object-fit: cover;
