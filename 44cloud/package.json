@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "^11.5.0",
+    "@sanity/client": "^5.3.2",
     "firebase-functions": "^4.2.1"
   }
 }
