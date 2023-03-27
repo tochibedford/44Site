@@ -5,6 +5,9 @@ import instagram from "../../assets/instagram.png"
 import twitter from "../../assets/twitter.png"
 
 export default function Footer() {
+    const handleSubmit = () => {
+
+    }
     return (
         <div className={styles.container}>
             <div className={styles.footerWrapper}>
@@ -13,12 +16,12 @@ export default function Footer() {
                     <p className={styles.subtitle}>Receive offers, updates, tips and exclusive invites.</p>
                     <form className={styles.newsletterForm}>
                         <div>
-                            <input className={styles.input} placeholder="First name"></input>
-                            <input className={styles.input} placeholder="Last name"></input>
+                            <input className={styles.input} type="text" placeholder="First name" required></input>
+                            <input className={styles.input} type="text" placeholder="Last name" required></input>
                         </div>
                         <div className={styles.line__two}>
-                            <input className={styles.inputTwo} placeholder="Email Address"></input>
-                            <button className={styles.buttonWrapper}>SUBSCRIBE</button>
+                            <input className={styles.inputTwo} type="email" placeholder="Email Address" required></input>
+                            <button className={styles.buttonWrapper} type="submit">SUBSCRIBE</button>
                         </div>
                     </form>
                     <div className={styles.bottomDesktop}>
