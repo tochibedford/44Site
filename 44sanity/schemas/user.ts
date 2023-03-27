@@ -7,19 +7,22 @@ export default {
             name: "firstName",
             type: "string",
             title: "First Name",
-            description: "First name of user"
+            description: "First name of user",
+            validation: (Rule: any) => Rule.required()
         },
         {
-            name: "lastnameName",
+            name: "lastName",
             type: "string",
             title: "Last Name",
-            description: "First name of user"
+            description: "Last name of user",
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: "email",
             type: "email",
             title: "Email",
-            description: "Email of user"
+            description: "Email of user",
+            validation: (Rule: any) => Rule.required()
         },
     ],
 }

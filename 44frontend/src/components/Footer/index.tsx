@@ -16,11 +16,11 @@ export default function Footer() {
                     <p className={styles.subtitle}>Receive offers, updates, tips and exclusive invites.</p>
                     <form className={styles.newsletterForm}>
                         <div>
-                            <input className={styles.input} type="text" placeholder="First name" required></input>
-                            <input className={styles.input} type="text" placeholder="Last name" required></input>
+                            <input name="firstName" className={styles.input} type="text" placeholder="First name" required></input>
+                            <input name="lastName" className={styles.input} type="text" placeholder="Last name" required></input>
                         </div>
                         <div className={styles.line__two}>
-                            <input className={styles.inputTwo} type="email" placeholder="Email Address" required></input>
+                            <input name="email" className={styles.inputTwo} type="email" placeholder="Email Address" required></input>
                             <button className={styles.buttonWrapper} type="submit">SUBSCRIBE</button>
                         </div>
                     </form>
