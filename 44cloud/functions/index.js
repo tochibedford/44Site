@@ -23,9 +23,9 @@ exports.addUser = functions.https.onRequest((req, res) => {
   };
 
   client
-    .create(data)
-    .then((res) => console.log("Document created:", res))
-    .catch((err) => console.error("Error creating document:", err));
+      .create(data)
+      .then((res) => console.log("Document created:", res))
+      .catch((err) => console.error("Error creating document:", err));
 
   res.send("Form submitted successfully!");
 });
