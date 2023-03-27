@@ -5,7 +5,6 @@ exports.addUser = functions.https.onRequest((req, res) => {
   const formData = req.body;
   console.log("Received form data:", formData);
 
-  // Send the form data to Sanity using the Sanity API client
   const client = sanityClient.createClient({
     projectId: process.env.SANITY_ID,
     dataset: process.env.SANITY_DATASET,
@@ -15,11 +14,10 @@ exports.addUser = functions.https.onRequest((req, res) => {
   });
 
   const data = {
-    _type: "user", // Replace with the name of your schema type
+    _type: "user",
     firstName: formData.firstName,
     lastName: formData.lastName,
     email: formData.email,
-    // etc.
   };
 
   client
