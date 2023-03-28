@@ -56,7 +56,6 @@ export default function Footer() {
     setText("RECEIVED")
   };
 
-
   return (
     <div className={styles.container}>
       <div className={styles.footerWrapper}>
