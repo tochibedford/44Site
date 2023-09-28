@@ -3,8 +3,8 @@ import styles from "./Footer.module.scss";
 import linkedin from "../../assets/linkedin-logo.png";
 import instagram from "../../assets/instagram.png";
 import twitter from "../../assets/twitter.png";
-import { contactFormDB } from "../../features/firebase.js";
-import { useState, FC, FormEvent } from "react";
+import { useState } from "react";
+import { useFormspark } from "@formspark/use-formspark";
 
 const Loader = () => {
   return (
@@ -22,7 +22,7 @@ const Loader = () => {
       />
     </svg>
   );
-};  
+};
 
 export default function Footer() {
   const [firstName, setFirstName] = useState("");
@@ -31,29 +31,23 @@ export default function Footer() {
   const [loader, setLoader] = useState(false);
   const [text, setText] = useState("SUBSCRIBE");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [submit, submitting] = useFormspark({
+    formId: import.meta.env.VITE_FORM_ID,
+  });
+
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoader(true);
-
-    contactFormDB
-      .collection("contacts")
-      .add({
-        first: firstName,
-        last: lastName,
-        email: email,
-      })
-      .then(() => {
-        setLoader(false);
-      })
-      .catch((error) => {
-        setText("TRY AGAIN")
-        setLoader(false);
-      });
-
+    await submit({
+      firstName,
+      lastName,
+      email,
+    }).then(() => setLoader(false));
     setEmail("");
     setLastName("");
     setFirstName("");
-    setText("RECEIVED")
+    setText("RECEIVED");
   };
 
   return (
@@ -74,6 +68,7 @@ export default function Footer() {
                 className={styles.input}
                 placeholder="First name"
                 type="firstname"
+                id="firstName"
                 required
               ></input>
               <input
@@ -84,6 +79,7 @@ export default function Footer() {
                 className={styles.input}
                 placeholder="Last name"
                 type="lastname"
+                id="lastName"
               ></input>
             </div>
             <div className={styles.line__two}>
@@ -96,8 +92,13 @@ export default function Footer() {
                 placeholder="Email Address"
                 type="email"
                 required
+                id="email"
               ></input>
-              <button className={styles.buttonWrapper} type="submit" disabled={loader}>
+              <button
+                className={styles.buttonWrapper}
+                type="submit"
+                disabled={loader}
+              >
                 {!loader ? text : <Loader />}
               </button>
             </div>
